@@ -64,10 +64,10 @@
 
 /* Hero foto */
 .ev-hero {
-  width: 100%; aspect-ratio: 21/9; overflow: hidden;
+  width: 100%; aspect-ratio: 16/7; overflow: hidden;
   position: relative; margin-bottom: 3px; cursor: zoom-in;
 }
-.ev-hero img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.ev-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transition: transform 0.6s; }
 .ev-hero:hover img { transform: scale(1.02); }
 .ev-hero-label {
   position: absolute; bottom: 1.5rem; left: 1.5rem;
@@ -303,30 +303,25 @@
       <div class="ev-header">
         <div>
           <div class="ev-title">Producción · Yolo</div>
-          <div class="ev-meta">📍 Paraguay · Producción audiovisual</div>
+          <div class="ev-meta">📍 Paraguay · Social Media Management · 9 piezas</div>
         </div>
         <a href="https://wa.me/595986249592?text=Hola%2C%20vi%20el%20proyecto%20Yolo%20y%20quiero%20info%20sobre%20producci%C3%B3n%20audiovisual%20%F0%9F%8E%AC" target="_blank" class="btn-outline" style="font-size:0.7rem;padding:10px 22px;">Consultar proyecto →</a>
       </div>
       <!-- Video card principal - reemplazar href con el link real de YouTube -->
-      <div class="videos-grid">
-        <div class="vid-card" onclick="window.open('https://www.youtube.com/@C.M.G.PRODUCCIONES','_blank')" style="background:linear-gradient(135deg,#10080f,#1e1020);">
-          <div class="vid-bg">🎬</div>
-          <div class="vid-play">▶</div>
-          <div class="vid-label">Yolo · Video principal</div>
-          <div class="vid-tag">Producción</div>
-        </div>
-        <div class="vid-card" onclick="window.open('https://www.youtube.com/@C.M.G.PRODUCCIONES','_blank')" style="background:linear-gradient(135deg,#0f1020,#181028);">
-          <div class="vid-bg">✨</div>
-          <div class="vid-play">▶</div>
-          <div class="vid-label">Yolo · Clip destacado</div>
-          <div class="vid-tag">Reel</div>
-        </div>
+      <div class="ev-hero" style="aspect-ratio:16/6;" onclick="openLightbox('videos-yolo',0)">
+        <img src="yolo-09.jpg" alt="Yolo - Social Media" loading="lazy" style="object-position:center center;">
+        <div class="ev-hero-label">Yolo · Social Media Management</div>
       </div>
-      <!-- Thumbnails: subí imágenes a img/videos/yolo/ para activar este bloque -->
-      <div class="ev-placeholder" style="margin-top:1.5rem;">
-        <strong>🎬 Subí los thumbnails de Yolo</strong>
-        Copiá las imágenes a <code>img/videos/yolo/</code> en GitHub<br>
-        y reemplazá los links de YouTube con los links reales del proyecto.
+      <div class="ev-grid" style="margin-top:1.5rem;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+        <div class="ev-thumb" style="aspect-ratio:4/5;" onclick="openLightbox('videos-yolo',0)"><img src="yolo-01.jpg" alt="Yolo emergencia" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" style="aspect-ratio:4/5;" onclick="openLightbox('videos-yolo',1)"><img src="yolo-02.jpg" alt="Yolo viernes" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" style="aspect-ratio:4/5;" onclick="openLightbox('videos-yolo',2)"><img src="yolo-03.jpg" alt="Yolo hola" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" style="aspect-ratio:4/5;" onclick="openLightbox('videos-yolo',3)"><img src="yolo-04.jpg" alt="Yolo hola 2" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" style="aspect-ratio:4/5;" onclick="openLightbox('videos-yolo',4)"><img src="yolo-05.jpg" alt="Yolo hola 3" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" style="aspect-ratio:4/5;" onclick="openLightbox('videos-yolo',5)"><img src="yolo-06.jpg" alt="Yolo semana santa" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" style="aspect-ratio:4/5;" onclick="openLightbox('videos-yolo',6)"><img src="yolo-07.jpg" alt="Yolo semana santa 2" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" style="aspect-ratio:4/5;" onclick="openLightbox('videos-yolo',7)"><img src="yolo-08.jpg" alt="Yolo donde disfrutas" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" style="aspect-ratio:4/5;" onclick="openLightbox('videos-yolo',8)"><img src="yolo-09.jpg" alt="Yolo tu yolo" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
       </div>
       <div class="gallery-cta">
         <a href="https://www.youtube.com/@C.M.G.PRODUCCIONES" target="_blank" class="btn-gold">Ver en YouTube →</a>
@@ -399,9 +394,11 @@ const galleries = {
     'a3vte-08.jpg','a3vte-10.jpg','a3vte-12.jpg','a3vte-13.jpg',
     'a3vte-15.jpg','a3vte-16.jpg',
   ],
-  // 'videos-yolo': [
-  //   'img/videos/yolo/thumb1.jpg',
-  // ],
+  'videos-yolo': [
+    'yolo-01.jpg','yolo-02.jpg','yolo-03.jpg',
+    'yolo-04.jpg','yolo-05.jpg','yolo-06.jpg',
+    'yolo-07.jpg','yolo-08.jpg','yolo-09.jpg',
+  ],
 };
 
 let currentGallery = '', currentIndex = 0;
