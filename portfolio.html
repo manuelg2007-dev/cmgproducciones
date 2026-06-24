@@ -4,15 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio | C.M.G. Producciones</title>
+<meta name="description" content="Portfolio de fotografía y video de C.M.G. Producciones. 15 años, bodas, eventos corporativos y producción audiovisual en Paraguay.">
 <link rel="stylesheet" href="style.css">
 <style>
-/* ── TABS PRINCIPALES ── */
 .main-tabs {
   display: flex; gap: 0;
   border-bottom: 1px solid rgba(200,163,95,0.15);
-  margin-bottom: 0;
-  overflow-x: auto;
+  margin-bottom: 0; overflow-x: auto;
+  scrollbar-width: none;
 }
+.main-tabs::-webkit-scrollbar { display: none; }
 .mtab {
   background: none; border: none;
   color: var(--gray); font-family: 'Poppins', sans-serif;
@@ -29,40 +30,24 @@
 .mtab.active::after { transform: scaleX(1); }
 .mtab:hover { color: var(--gray-light); }
 
-/* ── PANEL DE CATEGORÍA ── */
 .cat-panel { display: none; padding-top: 2.5rem; }
 .cat-panel.active { display: block; }
 
-/* ── SUBTABS (eventos) ── */
 .event-tabs {
   display: flex; gap: 0.6rem; flex-wrap: wrap;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.5rem; align-items: center;
 }
 .etab {
   background: var(--dark-3);
   border: 1px solid rgba(200,163,95,0.12);
   color: var(--gray-light); font-family: 'Poppins', sans-serif;
   font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.6rem 1.2rem; cursor: pointer; transition: all 0.3s;
+  padding: 0.6rem 1.4rem; cursor: pointer; transition: all 0.3s;
   white-space: nowrap;
 }
-.etab.active {
-  background: var(--gold); color: var(--dark);
-  border-color: var(--gold); font-weight: 600;
-}
+.etab.active { background: var(--gold); color: var(--dark); border-color: var(--gold); font-weight: 600; }
 .etab:hover:not(.active) { border-color: rgba(200,163,95,0.4); color: var(--white); }
 
-/* ── ADD EVENT BUTTON ── */
-.add-event-btn {
-  background: transparent;
-  border: 1px dashed rgba(200,163,95,0.3);
-  color: var(--gold); font-size: 0.7rem;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.6rem 1.2rem; cursor: pointer; transition: all 0.3s;
-}
-.add-event-btn:hover { border-color: var(--gold); background: rgba(200,163,95,0.05); }
-
-/* ── GALERÍA DEL EVENTO ── */
 .event-panel { display: none; }
 .event-panel.active { display: block; }
 
@@ -70,79 +55,71 @@
   display: flex; justify-content: space-between;
   align-items: flex-end; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;
 }
-.ev-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem; font-style: italic; color: var(--white);
-}
-.ev-meta { font-size: 0.72rem; color: var(--gray); letter-spacing: 0.1em; }
+.ev-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-style: italic; }
+.ev-meta { font-size: 0.72rem; color: var(--gray); letter-spacing: 0.1em; margin-top: 4px; }
 
-/* Foto héroe del evento */
 .ev-hero {
-  width: 100%; aspect-ratio: 21/9;
-  overflow: hidden; position: relative; margin-bottom: 3px;
-  cursor: zoom-in;
+  width: 100%; aspect-ratio: 16/7; overflow: hidden;
+  position: relative; margin-bottom: 3px; cursor: zoom-in;
 }
-.ev-hero img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.6s ease;
-}
-.ev-hero:hover img { transform: scale(1.03); }
+.ev-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transition: transform 0.6s; }
+.ev-hero:hover img { transform: scale(1.02); }
 .ev-hero-label {
   position: absolute; bottom: 1.5rem; left: 1.5rem;
-  font-size: 0.62rem; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--gold);
-  background: rgba(0,0,0,0.4); padding: 4px 10px;
+  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); background: rgba(0,0,0,0.5); padding: 4px 10px;
 }
 
-/* Grid de thumbs */
 .ev-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 3px;
 }
-.ev-thumb {
-  aspect-ratio: 1; overflow: hidden;
-  position: relative; cursor: zoom-in;
-}
-.ev-thumb img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.4s;
-}
+.ev-thumb { aspect-ratio: 1; overflow: hidden; position: relative; cursor: zoom-in; }
+.ev-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
 .ev-thumb:hover img { transform: scale(1.06); }
 .ev-thumb-ov {
-  position: absolute; inset: 0;
-  background: rgba(0,0,0,0.3);
+  position: absolute; inset: 0; background: rgba(0,0,0,0.35);
   opacity: 0; transition: opacity 0.3s;
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
 }
 .ev-thumb:hover .ev-thumb-ov { opacity: 1; }
-.ev-thumb-ov span { font-size: 1.5rem; }
 
-/* ── LIGHTBOX ── */
+.ev-placeholder {
+  border: 2px dashed rgba(200,163,95,0.15);
+  padding: 5rem 2rem; text-align: center;
+  color: var(--gray); font-size: 0.85rem; line-height: 2;
+}
+.ev-placeholder strong {
+  color: var(--gold); display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-style: italic; margin-bottom: 0.8rem;
+}
+
+.gallery-cta { text-align: center; padding: 3rem 0 0; }
+
+/* LIGHTBOX */
 .lightbox {
   display: none; position: fixed; inset: 0; z-index: 9999;
   background: rgba(0,0,0,0.96);
   align-items: center; justify-content: center;
 }
 .lightbox.open { display: flex; }
-.lb-img {
-  max-width: 90vw; max-height: 90vh;
-  object-fit: contain;
-  border: 1px solid rgba(200,163,95,0.15);
-}
+.lb-img { max-width: 90vw; max-height: 88vh; object-fit: contain; }
 .lb-close {
   position: absolute; top: 1.5rem; right: 2rem;
-  color: var(--gold); font-size: 2rem; cursor: pointer;
-  background: none; border: none; line-height: 1;
+  color: var(--gold); font-size: 2.5rem; cursor: pointer;
+  background: none; border: none; line-height: 1; opacity: 0.8;
 }
+.lb-close:hover { opacity: 1; }
 .lb-prev, .lb-next {
   position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(200,163,95,0.15); border: 1px solid rgba(200,163,95,0.3);
-  color: var(--gold); font-size: 1.5rem; width: 48px; height: 48px;
+  background: rgba(200,163,95,0.1); border: 1px solid rgba(200,163,95,0.25);
+  color: var(--gold); width: 52px; height: 52px;
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: background 0.3s;
+  cursor: pointer; font-size: 1.5rem; transition: background 0.3s;
 }
-.lb-prev:hover, .lb-next:hover { background: rgba(200,163,95,0.3); }
+.lb-prev:hover, .lb-next:hover { background: rgba(200,163,95,0.25); }
 .lb-prev { left: 1rem; }
 .lb-next { right: 1rem; }
 .lb-counter {
@@ -150,41 +127,7 @@
   font-size: 0.72rem; color: var(--gray); letter-spacing: 0.15em;
 }
 
-/* ── PLACEHOLDER (cuando no hay fotos) ── */
-.ev-placeholder {
-  border: 2px dashed rgba(200,163,95,0.15);
-  padding: 4rem 2rem; text-align: center;
-  color: var(--gray); font-size: 0.85rem; line-height: 1.8;
-}
-.ev-placeholder strong { color: var(--gold); display: block; margin-bottom: 0.5rem; font-size: 1rem; }
-
-/* Videos */
-.videos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 1.5rem; }
-.vid-card {
-  aspect-ratio: 16/9; position: relative; overflow: hidden;
-  cursor: pointer; border: 1px solid rgba(200,163,95,0.08);
-  background: var(--dark-3);
-}
-.vid-bg { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:4rem; color:rgba(200,163,95,0.12); transition:transform 0.4s; }
-.vid-card:hover .vid-bg { transform: scale(1.04); }
-.vid-play {
-  position: absolute; width:64px; height:64px;
-  border: 2px solid var(--gold); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  color:var(--gold); font-size:1.4rem; transition:all 0.3s;
-  top:50%; left:50%; transform:translate(-50%,-50%);
-}
-.vid-card:hover .vid-play { background:var(--gold); color:var(--dark); }
-.vid-label { position:absolute; bottom:1rem; left:1rem; font-size:0.72rem; color:rgba(255,255,255,0.5); letter-spacing:0.1em; }
-
-.gallery-cta { text-align:center; padding:3rem 0 0; }
-
-@media(max-width:700px) {
-  .ev-grid { grid-template-columns: repeat(2,1fr); }
-  .ev-hero { aspect-ratio: 4/3; }
-}
-
-/* ── VIDEO EMBEDS (YouTube Shorts) ── */
+/* VIDEOS */
 .yolo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -192,23 +135,22 @@
   margin-top: 1rem;
 }
 .vid-embed-wrap {
-  position: relative;
   border: 1px solid rgba(200,163,95,0.1);
-  background: var(--dark-3);
-  overflow: hidden;
+  background: var(--dark-3); overflow: hidden;
 }
 .vid-embed-wrap iframe {
-  width: 100%;
-  aspect-ratio: 9/16;
-  display: block;
+  width: 100%; aspect-ratio: 9/16; display: block;
 }
 .vid-embed-label {
-  padding: 0.6rem 0.8rem;
-  font-size: 0.68rem;
-  color: var(--gray);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  padding: 0.6rem 0.8rem; font-size: 0.68rem;
+  color: var(--gray); letter-spacing: 0.08em; text-transform: uppercase;
   border-top: 1px solid rgba(200,163,95,0.07);
+}
+
+@media(max-width:700px) {
+  .ev-grid { grid-template-columns: repeat(2,1fr); }
+  .ev-hero { aspect-ratio: 4/3; }
+  .yolo-grid { grid-template-columns: repeat(2,1fr); }
 }
 </style>
 </head>
@@ -221,119 +163,101 @@
     <span class="page-eyebrow">Nuestro trabajo</span>
     <h1 class="page-title">Portfolio<br><em>& Galería.</em></h1>
     <div class="gold-bar"></div>
-    <p class="section-desc">Solo lo mejor. Cada evento, una historia única. Navegá por categoría y sesión.</p>
+    <p class="section-desc">Cada evento, una historia única. Navegá por categoría y elegí el estilo que imaginás para el tuyo.</p>
   </div>
 </div>
 
 <section>
-  <!-- TABS PRINCIPALES -->
   <div class="main-tabs">
     <button class="mtab active" onclick="switchMain('quince',this)">📸 15 Años</button>
     <button class="mtab" onclick="switchMain('bodas',this)">💍 Bodas</button>
     <button class="mtab" onclick="switchMain('empresas',this)">📌 Corporativo</button>
-    <button class="mtab" onclick="switchMain('videos',this)">🎬 Videos</button>
+    <button class="mtab" onclick="switchMain('videos',this)">🎬 Producción Audiovisual</button>
   </div>
 
-  <!-- ══════════════ 15 AÑOS ══════════════ -->
+  <!-- ══════ 15 AÑOS ══════ -->
   <div class="cat-panel active" id="cat-quince">
     <div class="event-tabs">
       <button class="etab active" onclick="switchEvent('quince','julieta',this)">XV de Julieta</button>
-      <!-- Acá se agregan más eventos automáticamente -->
-      <button class="add-event-btn" onclick="showAddEventInfo('quince')">+ Agregar evento</button>
     </div>
-
-    <!-- XV DE JULIETA -->
     <div class="event-panel active" id="ev-quince-julieta">
       <div class="ev-header">
         <div>
           <div class="ev-title">XV Años de Julieta</div>
           <div class="ev-meta">📍 Paraguay · 2024 · 10 fotografías</div>
         </div>
-        <a href="https://wa.me/595986249592?text=Hola%2C%20vi%20el%20portfolio%20del%20XV%20de%20Julieta%20y%20me%20interesa%20un%20servicio%20similar" target="_blank" class="btn-outline" style="font-size:0.7rem;padding:10px 20px;">Quiero algo así →</a>
+        <a href="https://wa.me/595986249592?text=Hola%2C%20vi%20el%20portfolio%20del%20XV%20de%20Julieta%20y%20quiero%20algo%20similar%20%F0%9F%8C%B8" target="_blank" class="btn-outline" style="font-size:0.7rem;padding:10px 22px;">Quiero algo así →</a>
       </div>
-
-      <!-- FOTO HÉROE -->
-      <div class="ev-hero" onclick="openLightbox('quince-julieta', 0)">
-        <img src="CMG_7295.jpg" alt="XV Años Julieta - foto principal">
+      <div class="ev-hero" onclick="openLightbox('quince-julieta',0)">
+        <img src="CMG_7295.jpg" alt="XV de Julieta - foto principal" loading="lazy">
         <div class="ev-hero-label">XV Años · Sesión destacada</div>
       </div>
-
-      <!-- GRID DE FOTOS -->
       <div class="ev-grid" style="margin-top:3px;">
-        <div class="ev-thumb" onclick="openLightbox('quince-julieta', 1)">
-          <img src="CMG_7326.jpg" alt="XV Julieta 2">
-          <div class="ev-thumb-ov"><span>🔍</span></div>
-        </div>
-        <div class="ev-thumb" onclick="openLightbox('quince-julieta', 2)">
-          <img src="CMG_7342.jpg" alt="XV Julieta 3">
-          <div class="ev-thumb-ov"><span>🔍</span></div>
-        </div>
-        <div class="ev-thumb" onclick="openLightbox('quince-julieta', 3)">
-          <img src="CMG_7344.jpg" alt="XV Julieta 4">
-          <div class="ev-thumb-ov"><span>🔍</span></div>
-        </div>
-        <div class="ev-thumb" onclick="openLightbox('quince-julieta', 4)">
-          <img src="CMG_7359.jpg" alt="XV Julieta 5">
-          <div class="ev-thumb-ov"><span>🔍</span></div>
-        </div>
-        <div class="ev-thumb" onclick="openLightbox('quince-julieta', 5)">
-          <img src="CMG_7371.jpg" alt="XV Julieta 6">
-          <div class="ev-thumb-ov"><span>🔍</span></div>
-        </div>
-        <div class="ev-thumb" onclick="openLightbox('quince-julieta', 6)">
-          <img src="CMG_7378.jpg" alt="XV Julieta 7">
-          <div class="ev-thumb-ov"><span>🔍</span></div>
-        </div>
-        <div class="ev-thumb" onclick="openLightbox('quince-julieta', 7)">
-          <img src="CMG_7385.jpg" alt="XV Julieta 8">
-          <div class="ev-thumb-ov"><span>🔍</span></div>
-        </div>
-        <div class="ev-thumb" onclick="openLightbox('quince-julieta', 8)">
-          <img src="CMG_7409.jpg" alt="XV Julieta 9">
-          <div class="ev-thumb-ov"><span>🔍</span></div>
-        </div>
-        <div class="ev-thumb" onclick="openLightbox('quince-julieta', 9)">
-          <img src="CMG_7417.jpg" alt="XV Julieta 10">
-          <div class="ev-thumb-ov"><span>🔍</span></div>
-        </div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',1)"><img src="CMG_7326.jpg" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',2)"><img src="CMG_7342.jpg" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',3)"><img src="CMG_7344.jpg" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',4)"><img src="CMG_7359.jpg" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',5)"><img src="CMG_7371.jpg" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',6)"><img src="CMG_7378.jpg" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',7)"><img src="CMG_7385.jpg" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',8)"><img src="CMG_7409.jpg" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',9)"><img src="CMG_7417.jpg" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
       </div>
       <div class="gallery-cta">
-        <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20ver%20m%C3%A1s%20fotos%20del%20XV%20de%20Julieta" target="_blank" class="btn-gold">Ver galería completa por WhatsApp</a>
+        <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20ver%20la%20galer%C3%ADa%20completa%20del%20XV%20de%20Julieta" target="_blank" class="btn-gold">Ver galería completa →</a>
       </div>
     </div>
   </div>
 
-  <!-- ══════════════ BODAS ══════════════ -->
+  <!-- ══════ BODAS ══════ -->
   <div class="cat-panel" id="cat-bodas">
-    <div class="event-tabs">
-      <button class="etab active" onclick="switchEvent('bodas','placeholder',this)">Próximamente</button>
-      <button class="add-event-btn" onclick="showAddEventInfo('bodas')">+ Agregar evento</button>
-    </div>
-    <div class="event-panel active" id="ev-bodas-placeholder">
+    <div class="event-panel active" id="ev-bodas-vacio">
       <div class="ev-placeholder">
-        <strong>📸 Subí tus fotos de bodas</strong>
-        Creá una carpeta <code>img/bodas/nombre-pareja/</code>, copiá tus fotos ahí<br>
-        y avisame para agregar la pestaña con el nombre de la pareja.
+        <strong>💍 Próximamente</strong>
+        Las galerías de bodas estarán disponibles pronto.<br>
+        Escribinos para ver más trabajos por WhatsApp.
+      </div>
+      <div class="gallery-cta">
+        <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20ver%20fotos%20de%20bodas%20%F0%9F%92%8D" target="_blank" class="btn-gold">Ver fotos por WhatsApp →</a>
       </div>
     </div>
   </div>
 
-  <!-- ══════════════ CORPORATIVO ══════════════ -->
+  <!-- ══════ CORPORATIVO ══════ -->
   <div class="cat-panel" id="cat-empresas">
     <div class="event-tabs">
-      <button class="etab active" onclick="switchEvent('empresas','placeholder',this)">Próximamente</button>
-      <button class="add-event-btn" onclick="showAddEventInfo('empresas')">+ Agregar evento</button>
+      <button class="etab active" onclick="switchEvent('empresas','a3vte',this)">A3VTE</button>
     </div>
-    <div class="event-panel active" id="ev-empresas-placeholder">
-      <div class="ev-placeholder">
-        <strong>📌 Subí tus fotos corporativas</strong>
-        Creá una carpeta <code>img/empresas/nombre-empresa/</code> y avisame<br>
-        para agregar la pestaña con el nombre del cliente.
+    <div class="event-panel active" id="ev-empresas-a3vte">
+      <div class="ev-header">
+        <div>
+          <div class="ev-title">Evento A3VTE</div>
+          <div class="ev-meta">📍 Paraguay · Cobertura corporativa · 10 fotografías</div>
+        </div>
+        <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20info%20sobre%20cobertura%20corporativa%20%F0%9F%93%8C" target="_blank" class="btn-outline" style="font-size:0.7rem;padding:10px 22px;">Cotizar cobertura →</a>
+      </div>
+      <div class="ev-hero" onclick="openLightbox('empresas-a3vte',0)">
+        <img src="a3vte-01.jpg" alt="A3VTE evento corporativo" loading="lazy">
+        <div class="ev-hero-label">A3VTE · Cobertura corporativa</div>
+      </div>
+      <div class="ev-grid" style="margin-top:3px;">
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',1)"><img src="a3vte-03.jpg" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',2)"><img src="a3vte-04.jpg" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',3)"><img src="a3vte-05.jpg" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',4)"><img src="a3vte-08.jpg" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',5)"><img src="a3vte-10.jpg" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',6)"><img src="a3vte-12.jpg" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',7)"><img src="a3vte-13.jpg" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',8)"><img src="a3vte-15.jpg" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',9)"><img src="a3vte-16.jpg" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+      </div>
+      <div class="gallery-cta">
+        <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20info%20sobre%20cobertura%20corporativa" target="_blank" class="btn-gold">Consultar cobertura →</a>
       </div>
     </div>
   </div>
 
-  <!-- ══════════════ PRODUCCIÓN AUDIOVISUAL ══════════════ -->
+  <!-- ══════ PRODUCCIÓN AUDIOVISUAL ══════ -->
   <div class="cat-panel" id="cat-videos">
     <div class="ev-header" style="margin-bottom:2rem;">
       <div>
@@ -392,27 +316,22 @@ document.getElementById('footer-placeholder').outerHTML = footerHTML();
 document.getElementById('wa-placeholder').outerHTML = waFloat();
 document.body.insertAdjacentHTML('beforeend', sharedScripts());
 
-// Galería por evento para lightbox
 const galleries = {
   'quince-julieta': [
-    'CMG_7295.jpg',
-    'CMG_7326.jpg',
-    'CMG_7342.jpg',
-    'CMG_7344.jpg',
-    'CMG_7359.jpg',
-    'CMG_7371.jpg',
-    'CMG_7378.jpg',
-    'CMG_7385.jpg',
-    'CMG_7409.jpg',
-    'CMG_7417.jpg',
-  ]
+    'CMG_7295.jpg','CMG_7326.jpg','CMG_7342.jpg','CMG_7344.jpg','CMG_7359.jpg',
+    'CMG_7371.jpg','CMG_7378.jpg','CMG_7385.jpg','CMG_7409.jpg','CMG_7417.jpg',
+  ],
+  'empresas-a3vte': [
+    'a3vte-01.jpg','a3vte-03.jpg','a3vte-04.jpg','a3vte-05.jpg','a3vte-08.jpg',
+    'a3vte-10.jpg','a3vte-12.jpg','a3vte-13.jpg','a3vte-15.jpg','a3vte-16.jpg',
+  ],
 };
 
 let currentGallery = '', currentIndex = 0;
 
 function openLightbox(gallery, index) {
-  currentGallery = gallery;
-  currentIndex = index;
+  if (!galleries[gallery]) return;
+  currentGallery = gallery; currentIndex = index;
   updateLightbox();
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -422,7 +341,7 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 function closeLightboxOutside(e) {
-  if(e.target === document.getElementById('lightbox')) closeLightbox();
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
 }
 function lbNav(dir) {
   const imgs = galleries[currentGallery];
@@ -435,32 +354,23 @@ function updateLightbox() {
   document.getElementById('lb-counter').textContent = `${currentIndex+1} / ${imgs.length}`;
 }
 document.addEventListener('keydown', e => {
-  if(!document.getElementById('lightbox').classList.contains('open')) return;
-  if(e.key === 'ArrowRight') lbNav(1);
-  if(e.key === 'ArrowLeft') lbNav(-1);
-  if(e.key === 'Escape') closeLightbox();
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') lbNav(1);
+  if (e.key === 'ArrowLeft') lbNav(-1);
+  if (e.key === 'Escape') closeLightbox();
 });
 
-// Switch categoría principal
 function switchMain(id, btn) {
   document.querySelectorAll('.cat-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.mtab').forEach(b => b.classList.remove('active'));
   document.getElementById('cat-' + id).classList.add('active');
   btn.classList.add('active');
 }
-
-// Switch evento dentro de categoría
 function switchEvent(cat, ev, btn) {
   document.querySelectorAll('#cat-' + cat + ' .event-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('#cat-' + cat + ' .etab').forEach(b => b.classList.remove('active'));
   document.getElementById('ev-' + cat + '-' + ev).classList.add('active');
   btn.classList.add('active');
-}
-
-// Info para agregar evento
-function showAddEventInfo(cat) {
-  const labels = { quince: '15 años', bodas: 'bodas', empresas: 'corporativo' };
-  alert(`Para agregar un nuevo evento de ${labels[cat]}:\n\n1. Creá la carpeta: img/${cat}/nombre-evento/\n2. Copiá las fotos ahí\n3. Escribime por WhatsApp y lo agrego en minutos ✅`);
 }
 </script>
 </body>
