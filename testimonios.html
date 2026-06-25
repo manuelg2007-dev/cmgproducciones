@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <!-- ══ SEGURIDAD ══ -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonios | C.M.G. Producciones</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.testi-card{background:var(--dark-2);border:1px solid rgba(200,163,95,0.07);padding:2.5rem 2rem;position:relative;transition:border-color 0.3s;}
+.testi-card:hover{border-color:rgba(200,163,95,0.2);}
+.testi-stars{color:var(--gold);letter-spacing:3px;font-size:0.85rem;margin-bottom:1.2rem;}
+.testi-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--gray-light);line-height:1.75;margin-bottom:1.5rem;}
+.testi-client{font-weight:600;font-size:0.82rem;}
+.testi-event{font-size:0.72rem;color:var(--gray);margin-top:3px;}
+.testi-bg-q{position:absolute;top:1.2rem;right:1.5rem;font-family:'Cormorant Garamond',serif;font-size:5rem;color:rgba(200,163,95,0.05);line-height:1;}
+
+/* Before/After */
+#antesdespues{padding:7rem 6vw;background:var(--dark-2);}
+.slider-wrap{position:relative;width:100%;max-width:920px;margin:3rem auto 0;aspect-ratio:16/8;overflow:hidden;cursor:col-resize;border:1px solid rgba(200,163,95,0.12);user-select:none;}
+.slider-before,.slider-after{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:5rem;}
+.slider-before{background:linear-gradient(135deg,#1a1008,#2d1f0a);color:rgba(200,163,95,0.15);}
+.slider-after{background:linear-gradient(135deg,#0a0a18,#101028);color:rgba(200,163,95,0.4);clip-path:inset(0 50% 0 0);}
+.slider-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--gold);z-index:10;cursor:col-resize;}
+.slider-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--dark);font-size:0.7rem;letter-spacing:-1px;white-space:nowrap;font-weight:700;}
+.slider-label{position:absolute;bottom:1rem;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);z-index:5;}
+.slider-label.left{left:1.5rem;}
+.slider-label.right{right:1.5rem;}
+.slider-hint{text-align:center;margin-top:1rem;font-size:0.72rem;color:var(--gray);letter-spacing:0.08em;}
+
+/* Google reviews strip */
+#google-strip{padding:4rem 6vw;background:var(--gold);display:flex;justify-content:center;gap:4rem;align-items:center;flex-wrap:wrap;}
+.gs-item{text-align:center;}
+.gs-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--dark);line-height:1;}
+.gs-l{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(13,13,13,0.6);margin-top:4px;}
+
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.testi-grid{grid-template-columns:1fr;}.slider-wrap{aspect-ratio:4/3;}}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <span class="page-eyebrow">Ellos lo dicen</span>
+    <h1 class="page-title">Testimonios<br><em>Reales.</em></h1>
+    <div class="gold-bar"></div>
+    <p class="section-desc">Nada habla mejor de nuestro trabajo que quienes vivieron la experiencia. Acá compartimos sus palabras.</p>
+  </div>
+</div>
+
+<!-- GOOGLE STRIP -->
+<div id="google-strip">
+  <div class="gs-item"><div class="gs-n">5.0</div><div class="gs-l">⭐⭐⭐⭐⭐ Google</div></div>
+  <div class="gs-item"><div class="gs-n">+200</div><div class="gs-l">Eventos cubiertos</div></div>
+  <div class="gs-item"><div class="gs-n">100%</div><div class="gs-l">Clientes satisfechos</div></div>
+  <div class="gs-item"><div class="gs-n">+5</div><div class="gs-l">Años de experiencia</div></div>
+</div>
+
+<!-- TESTIMONIOS -->
+<section style="padding:7rem 6vw;background:var(--dark);">
+  <div class="">
+    <span class="eyebrow">Lo que dicen</span>
+    <h2 class="section-title">Nuestros<br><em>Clientes.</em></h2>
+    <div class="gold-bar"></div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-bg-q">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">Volveríamos a elegirlos mil veces. Capturaron exactamente lo que soñamos para nuestra boda. Cada foto cuenta nuestra historia.</p>
+      <div class="testi-client">María & Rodrigo</div>
+      <div class="testi-event">Boda · Asunción, 2024</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-bg-q">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">La mejor inversión de nuestra boda. El video cinemático nos hizo llorar de emoción. Lo vemos una y otra vez con toda la familia.</p>
+      <div class="testi-client">Laura & Diego M.</div>
+      <div class="testi-event">Boda · San Lorenzo, 2024</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-bg-q">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">Superaron nuestras expectativas. El quinceañero de mi hija quedó inolvidable. Las fotos son de otro nivel, pura emoción.</p>
+      <div class="testi-client">Patricia C.</div>
+      <div class="testi-event">15 Años · Luque, 2024</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-bg-q">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">Contratamos la cobertura de nuestro evento corporativo y el resultado fue impresionante. Profesionalismo y calidad garantizada.</p>
+      <div class="testi-client">Empresa LogoPY</div>
+      <div class="testi-event">Evento Corporativo · Asunción, 2024</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-bg-q">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">El álbum fotográfico es una obra de arte. Cada vez que lo abro vuelvo a vivir ese día. Gracias por hacerlo tan especial.</p>
+      <div class="testi-client">Sofía & Marcos R.</div>
+      <div class="testi-event">Boda + Fotobook · 2023</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-bg-q">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">La sesión previa de los 15 años de mi hija fue mágica. Manuel sabe cómo hacer que todos se sientan cómodos y naturales.</p>
+      <div class="testi-client">Ana G.</div>
+      <div class="testi-event">15 Años · Fernando de la Mora, 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- ANTES Y DESPUÉS -->
+<section id="antesdespues">
+  <div class="" style="text-align:center;max-width:580px;margin:0 auto;">
+    <span class="eyebrow">Antes & Después</span>
+    <h2 class="section-title">La diferencia está<br><em>en la edición.</em></h2>
+    <div class="gold-bar" style="margin:1.5rem auto;"></div>
+    <p style="font-size:0.85rem;color:var(--gray-light);line-height:1.8;">Deslizá el control para ver la transformación de una foto original a la versión editada con nuestro estilo cinematográfico.</p>
+  </div>
+  <div class="slider-wrap" id="sliderWrap">
+    <div class="slider-before">📷<br><span style="font-size:1.5rem;color:rgba(200,163,95,0.3);">Original</span></div>
+    <div class="slider-after" id="sliderAfter">✨<br><span style="font-size:1.5rem;color:rgba(200,163,95,0.6);">Editada</span></div>
+    <div class="slider-handle" id="sliderHandle">
+      <div class="slider-btn">◀▶</div>
+    </div>
+    <span class="slider-label left">SIN EDICIÓN</span>
+    <span class="slider-label right">CON EDICIÓN</span>
+  </div>
+  <p class="slider-hint">← Arrastrá el control para comparar →</p>
+  <div style="text-align:center;margin-top:3rem;">
+    <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20ver%20m%C3%A1s%20ejemplos%20de%20edici%C3%B3n" target="_blank" rel="noopener noreferrer" class="btn-gold">Ver más ejemplos por WhatsApp</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<div id="wa-placeholder"></div>
+<script src="components.js" defer></script>
+<script>
+document.getElementById('nav-placeholder').outerHTML = navHTML('testimonios.html');
+document.getElementById('footer-placeholder').outerHTML = footerHTML();
+document.getElementById('wa-placeholder').outerHTML = waFloat();
+document.body.insertAdjacentHTML('beforeend', sharedScripts());
+
+// Slider
+const wrap=document.getElementById('sliderWrap');
+const after=document.getElementById('sliderAfter');
+const handle=document.getElementById('sliderHandle');
+let dragging=false;
+function setSlider(x){
+  const rect=wrap.getBoundingClientRect();
+  let pct=Math.max(5,Math.min(95,((x-rect.left)/rect.width)*100));
+  after.style.clipPath=`inset(0 ${100-pct}% 0 0)`;
+  handle.style.left=pct+'%';
+}
+handle.addEventListener('mousedown',()=>dragging=true);
+window.addEventListener('mouseup',()=>dragging=false);
+window.addEventListener('mousemove',e=>{if(dragging)setSlider(e.clientX);});
+handle.addEventListener('touchstart',e=>dragging=true,{passive:true});
+window.addEventListener('touchend',()=>dragging=false);
+window.addEventListener('touchmove',e=>{if(dragging)setSlider(e.touches[0].clientX);},{passive:true});
+</script>
+</body>
+</html>
