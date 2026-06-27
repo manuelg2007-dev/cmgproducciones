@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <!-- ══ SEGURIDAD ══ -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | C.M.G. Producciones</title>
+<meta name="description" content="Portfolio de fotografía y video de C.M.G. Producciones. 15 años, bodas, eventos corporativos y producción audiovisual en Paraguay.">
+<link rel="stylesheet" href="style.css">
+<style>
+.main-tabs {
+  display: flex; gap: 0;
+  border-bottom: 1px solid rgba(200,163,95,0.15);
+  margin-bottom: 0; overflow-x: auto;
+  scrollbar-width: none;
+}
+.main-tabs::-webkit-scrollbar { display: none; }
+.mtab {
+  background: none; border: none;
+  color: var(--gray); font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 1.1rem 2rem; cursor: pointer;
+  position: relative; transition: color 0.3s; white-space: nowrap;
+}
+.mtab::after {
+  content: ''; position: absolute; bottom: -1px; left: 0;
+  width: 100%; height: 1px; background: var(--gold);
+  transform: scaleX(0); transition: transform 0.3s;
+}
+.mtab.active { color: var(--gold); }
+.mtab.active::after { transform: scaleX(1); }
+.mtab:hover { color: var(--gray-light); }
+
+.cat-panel { display: none; padding-top: 2.5rem; }
+.cat-panel.active { display: block; }
+
+.event-tabs {
+  display: flex; gap: 0.6rem; flex-wrap: wrap;
+  margin-bottom: 2.5rem; align-items: center;
+}
+.etab {
+  background: var(--dark-3);
+  border: 1px solid rgba(200,163,95,0.12);
+  color: var(--gray-light); font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.6rem 1.4rem; cursor: pointer; transition: all 0.3s;
+  white-space: nowrap;
+}
+.etab.active { background: var(--gold); color: var(--dark); border-color: var(--gold); font-weight: 600; }
+.etab:hover:not(.active) { border-color: rgba(200,163,95,0.4); color: var(--white); }
+
+.event-panel { display: none; }
+.event-panel.active { display: block; }
+
+.ev-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;
+}
+.ev-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-style: italic; }
+.ev-meta { font-size: 0.72rem; color: var(--gray); letter-spacing: 0.1em; margin-top: 4px; }
+
+.ev-hero {
+  width: 100%; aspect-ratio: 16/7; overflow: hidden;
+  position: relative; margin-bottom: 3px; cursor: zoom-in;
+}
+.ev-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transition: transform 0.6s; }
+.ev-hero:hover img { transform: scale(1.02); }
+.ev-hero-label {
+  position: absolute; bottom: 1.5rem; left: 1.5rem;
+  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); background: rgba(0,0,0,0.5); padding: 4px 10px;
+}
+
+.ev-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 3px;
+}
+.ev-thumb { aspect-ratio: 1; overflow: hidden; position: relative; cursor: zoom-in; }
+.ev-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.ev-thumb:hover img { transform: scale(1.06); }
+.ev-thumb-ov {
+  position: absolute; inset: 0; background: rgba(0,0,0,0.35);
+  opacity: 0; transition: opacity 0.3s;
+  display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+}
+.ev-thumb:hover .ev-thumb-ov { opacity: 1; }
+
+.ev-placeholder {
+  border: 2px dashed rgba(200,163,95,0.15);
+  padding: 5rem 2rem; text-align: center;
+  color: var(--gray); font-size: 0.85rem; line-height: 2;
+}
+.ev-placeholder strong {
+  color: var(--gold); display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-style: italic; margin-bottom: 0.8rem;
+}
+
+.gallery-cta { text-align: center; padding: 3rem 0 0; }
+
+/* LIGHTBOX */
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.96);
+  align-items: center; justify-content: center;
+}
+.lightbox.open { display: flex; }
+.lb-img { max-width: 90vw; max-height: 88vh; object-fit: contain; }
+.lb-close {
+  position: absolute; top: 1.5rem; right: 2rem;
+  color: var(--gold); font-size: 2.5rem; cursor: pointer;
+  background: none; border: none; line-height: 1; opacity: 0.8;
+}
+.lb-close:hover { opacity: 1; }
+.lb-prev, .lb-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(200,163,95,0.1); border: 1px solid rgba(200,163,95,0.25);
+  color: var(--gold); width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1.5rem; transition: background 0.3s;
+}
+.lb-prev:hover, .lb-next:hover { background: rgba(200,163,95,0.25); }
+.lb-prev { left: 1rem; }
+.lb-next { right: 1rem; }
+.lb-counter {
+  position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  font-size: 0.72rem; color: var(--gray); letter-spacing: 0.15em;
+}
+
+/* VIDEOS */
+.yolo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.vid-embed-wrap {
+  border: 1px solid rgba(200,163,95,0.1);
+  background: var(--dark-3); overflow: hidden;
+}
+.vid-embed-wrap iframe {
+  width: 100%; aspect-ratio: 9/16; display: block;
+}
+.vid-embed-label {
+  padding: 0.6rem 0.8rem; font-size: 0.68rem;
+  color: var(--gray); letter-spacing: 0.08em; text-transform: uppercase;
+  border-top: 1px solid rgba(200,163,95,0.07);
+}
+
+@media(max-width:700px) {
+  .ev-grid { grid-template-columns: repeat(2,1fr); }
+  .ev-hero { aspect-ratio: 4/3; }
+  .yolo-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+:root {
+  --cream: #C8A97E;
+  --cream-light: #dfc4a0;
+  --bg: #0A0A0A;
+  --bg2: #111111;
+  --bg3: #181818;
+  --text: #E8E8E8;
+  --text-muted: #888;
+}
+body { font-family: 'Inter', sans-serif; }
+
+/* Page hero upgrade */
+.page-hero { min-height: 50vh; background: var(--bg) !important; }
+.page-eyebrow { color: var(--cream) !important; }
+.page-title em { color: var(--cream) !important; }
+.gold-bar { background: var(--cream) !important; }
+.eyebrow { color: var(--cream) !important; }
+.section-title em { color: var(--cream); }
+
+/* Reveal animation */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <span class="page-eyebrow">Nuestro trabajo</span>
+    <h1 class="page-title">Portfolio<br><em>& Galería.</em></h1>
+    <div class="gold-bar"></div>
+    <p class="section-desc">Cada evento, una historia única. Navegá por categoría y elegí el estilo que imaginás para el tuyo.</p>
+  </div>
+</div>
+
+<section>
+  <div class="main-tabs">
+    <button class="mtab active" onclick="switchMain('quince',this)">📸 15 Años</button>
+    <button class="mtab" onclick="switchMain('bodas',this)">💍 Bodas</button>
+    <button class="mtab" onclick="switchMain('empresas',this)">📌 Corporativo</button>
+    <button class="mtab" onclick="switchMain('videos',this)">🎬 Producción Audiovisual</button>
+    <button class="mtab" onclick="switchMain('contenido',this)">📱 Creación de Contenidos</button>
+  </div>
+
+  <!-- ══════ 15 AÑOS ══════ -->
+  <div class="cat-panel active" id="cat-quince">
+    <div class="event-tabs">
+      <button class="etab active" onclick="switchEvent('quince','julieta',this)">Kevin Adorno · Nov 2025</button>
+    </div>
+    <div class="event-panel active" id="ev-quince-julieta">
+      <div class="ev-header">
+        <div>
+          <div class="ev-title">Cobertura XV Años · Kevin Adorno</div>
+          <div class="ev-meta">📍 Paraguay · 29 de Noviembre 2025 · 10 fotografías</div>
+        </div>
+        <a href="https://wa.me/595986249592?text=Hola%2C%20vi%20el%20portfolio%20del%20XV%20de%20Julieta%20y%20quiero%20algo%20similar%20%F0%9F%8C%B8" target="_blank" rel="noopener noreferrer" class="btn-outline" style="font-size:0.7rem;padding:10px 22px;">Quiero algo así →</a>
+      </div>
+      <div class="ev-hero" onclick="openLightbox('quince-julieta',0)">
+        <img src="CMG_7295.webp" alt="XV de Julieta - foto principal" loading="lazy">
+        <div class="ev-hero-label">XV Años · Sesión destacada</div>
+      </div>
+      <div class="ev-grid" style="margin-top:3px;">
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',1)"><img src="CMG_7326.webp" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',2)"><img src="CMG_7342.webp" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',3)"><img src="CMG_7344.webp" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',4)"><img src="CMG_7359.webp" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',5)"><img src="CMG_7371.webp" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',6)"><img src="CMG_7378.webp" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',7)"><img src="CMG_7385.webp" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',8)"><img src="CMG_7409.webp" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('quince-julieta',9)"><img src="CMG_7417.webp" alt="XV Julieta" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+      </div>
+      <div class="gallery-cta">
+        <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20ver%20la%20galer%C3%ADa%20completa%20del%20XV%20de%20Julieta" target="_blank" rel="noopener noreferrer" class="btn-gold">Ver galería completa →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ BODAS ══════ -->
+  <div class="cat-panel" id="cat-bodas">
+    <div class="event-tabs">
+      <button class="etab active" onclick="switchEvent('bodas','jimmy',this)">Jimmy Adorno · 2018</button>
+    </div>
+    <div class="event-panel active" id="ev-bodas-jimmy">
+      <div class="ev-header">
+        <div>
+          <div class="ev-title">Cobertura de Boda · Jimmy Adorno</div>
+          <div class="ev-meta">📍 Paraguay · 28 de Septiembre 2018 · 10 fotografías</div>
+        </div>
+        <a href="https://wa.me/595986249592?text=Hola%2C%20vi%20la%20boda%20de%20Jimmy%20Adorno%20y%20quiero%20algo%20similar%20%F0%9F%92%8D" target="_blank" rel="noopener noreferrer" class="btn-outline" style="font-size:0.7rem;padding:10px 22px;">Quiero algo así →</a>
+      </div>
+      <div class="ev-hero" onclick="openLightbox('bodas-jimmy',0)">
+        <img src="boda-jimmy-01.webp" alt="Boda Jimmy Adorno - foto principal" loading="lazy" style="object-position:center 30%;">
+        <div class="ev-hero-label">Boda · Ceremonia religiosa</div>
+      </div>
+      <div class="ev-grid" style="margin-top:3px;">
+        <div class="ev-thumb" onclick="openLightbox('bodas-jimmy',1)"><img src="boda-jimmy-02.webp" alt="Boda Jimmy" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('bodas-jimmy',2)"><img src="boda-jimmy-03.webp" alt="Boda Jimmy" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('bodas-jimmy',3)"><img src="boda-jimmy-04.webp" alt="Boda Jimmy" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('bodas-jimmy',4)"><img src="boda-jimmy-05.webp" alt="Boda Jimmy" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('bodas-jimmy',5)"><img src="boda-jimmy-06.webp" alt="Boda Jimmy" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('bodas-jimmy',6)"><img src="boda-jimmy-07.webp" alt="Boda Jimmy" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('bodas-jimmy',7)"><img src="boda-jimmy-08.webp" alt="Boda Jimmy" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('bodas-jimmy',8)"><img src="boda-jimmy-09.webp" alt="Boda Jimmy" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('bodas-jimmy',9)"><img src="boda-jimmy-10.webp" alt="Boda Jimmy" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+      </div>
+      <div class="gallery-cta">
+        <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20ver%20la%20galer%C3%ADa%20completa%20de%20la%20boda%20de%20Jimmy%20Adorno" target="_blank" rel="noopener noreferrer" class="btn-gold">Ver galería completa →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ CORPORATIVO ══════ -->
+  <div class="cat-panel" id="cat-empresas">
+    <div class="event-tabs">
+      <button class="etab active" onclick="switchEvent('empresas','a3vte',this)">A3VTE · Oct 2024</button>
+    </div>
+    <div class="event-panel active" id="ev-empresas-a3vte">
+      <div class="ev-header">
+        <div>
+          <div class="ev-title">Cobertura Corporativa · A3VTE</div>
+          <div class="ev-meta">📍 Paraguay · 19 de Octubre 2024 · 10 fotografías</div>
+        </div>
+        <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20info%20sobre%20cobertura%20corporativa%20%F0%9F%93%8C" target="_blank" rel="noopener noreferrer" class="btn-outline" style="font-size:0.7rem;padding:10px 22px;">Cotizar cobertura →</a>
+      </div>
+      <div class="ev-hero" onclick="openLightbox('empresas-a3vte',0)">
+        <img src="a3vte-01.webp" alt="A3VTE evento corporativo" loading="lazy">
+        <div class="ev-hero-label">A3VTE · Cobertura corporativa</div>
+      </div>
+      <div class="ev-grid" style="margin-top:3px;">
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',1)"><img src="a3vte-03.webp" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',2)"><img src="a3vte-04.webp" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',3)"><img src="a3vte-05.webp" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',4)"><img src="a3vte-08.webp" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',5)"><img src="a3vte-10.webp" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',6)"><img src="a3vte-12.webp" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',7)"><img src="a3vte-13.webp" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',8)"><img src="a3vte-15.webp" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('empresas-a3vte',9)"><img src="a3vte-16.webp" alt="A3VTE" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+      </div>
+      <div class="gallery-cta">
+        <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20info%20sobre%20cobertura%20corporativa" target="_blank" rel="noopener noreferrer" class="btn-gold">Consultar cobertura →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ PRODUCCIÓN AUDIOVISUAL ══════ -->
+  <div class="cat-panel" id="cat-videos">
+    <div class="ev-header" style="margin-bottom:2rem;">
+      <div>
+        <div class="ev-title">Producción Audiovisual</div>
+        <div class="ev-meta">📍 Paraguay · Bodas, XV Años & Eventos</div>
+      </div>
+      <a href="https://www.youtube.com/@C.M.G.PRODUCCIONES" target="_blank" rel="noopener noreferrer" class="btn-outline" style="font-size:0.7rem;padding:10px 22px;">Ver canal →</a>
+    </div>
+    <div class="yolo-grid">
+      <div class="vid-embed-wrap"><iframe src="https://www.youtube.com/embed/zO8k5foc22g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <div class="vid-embed-wrap"><iframe src="https://www.youtube.com/embed/AG18ZXHtjDQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <div class="vid-embed-wrap"><iframe src="https://www.youtube.com/embed/oYw-AdJfLtA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <div class="vid-embed-wrap"><iframe src="https://www.youtube.com/embed/LlF3JEYaoUo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <div class="vid-embed-wrap"><iframe src="https://www.youtube.com/embed/5IQu8qSmX7k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <div class="vid-embed-wrap"><iframe src="https://www.youtube.com/embed/ayZS4B9p66E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+    <div class="gallery-cta">
+      <a href="https://www.youtube.com/@C.M.G.PRODUCCIONES" target="_blank" rel="noopener noreferrer" class="btn-gold">Ver canal completo →</a>
+    </div>
+  </div>
+
+  <!-- ══════ CREACIÓN DE CONTENIDOS ══════ -->
+  <div class="cat-panel" id="cat-contenido">
+    <div class="event-tabs">
+      <button class="etab active" onclick="switchEvent('contenido','yolo',this)">🍟 Yolo</button>
+    </div>
+
+    <!-- YOLO -->
+    <div class="event-panel active" id="ev-contenido-yolo">
+      <div class="ev-header">
+        <div>
+          <div class="ev-title">Creación de Contenidos · Yolo</div>
+          <div class="ev-meta">📍 Paraguay · Social Media Management · Marca de snacks</div>
+        </div>
+        <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20info%20sobre%20creaci%C3%B3n%20de%20contenidos%20para%20mi%20marca%20%F0%9F%93%B1" target="_blank" rel="noopener noreferrer" class="btn-outline" style="font-size:0.7rem;padding:10px 22px;">Quiero algo así →</a>
+      </div>
+      <!-- Hero con primera imagen -->
+      <div class="ev-hero" onclick="openLightbox('contenido-yolo',0)" style="aspect-ratio:16/7;">
+        <img src="yolo-01.webp" alt="Yolo contenido" loading="lazy" style="object-position:center center;">
+        <div class="ev-hero-label">Yolo · Social Media Management</div>
+      </div>
+      <!-- Grid de imágenes -->
+      <div class="ev-grid" style="margin-top:3px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));">
+        <div class="ev-thumb" onclick="openLightbox('contenido-yolo',1)"><img src="yolo-02.webp" alt="Yolo" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('contenido-yolo',2)"><img src="yolo-03.webp" alt="Yolo" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('contenido-yolo',3)"><img src="yolo-04.webp" alt="Yolo" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('contenido-yolo',4)"><img src="yolo-05.webp" alt="Yolo" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('contenido-yolo',5)"><img src="yolo-06.webp" alt="Yolo" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('contenido-yolo',6)"><img src="yolo-07.webp" alt="Yolo" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('contenido-yolo',7)"><img src="yolo-08.webp" alt="Yolo" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+        <div class="ev-thumb" onclick="openLightbox('contenido-yolo',8)"><img src="yolo-09.webp" alt="Yolo" loading="lazy"><div class="ev-thumb-ov">🔍</div></div>
+      </div>
+
+      <div class="gallery-cta">
+        <a href="https://wa.me/595986249592?text=Hola%2C%20quiero%20info%20sobre%20creaci%C3%B3n%20de%20contenidos" target="_blank" rel="noopener noreferrer" class="btn-gold">Consultar para mi marca →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-prev" onclick="lbNav(-1)">‹</button>
+  <img class="lb-img" id="lb-img" src="" alt="">
+  <button class="lb-next" onclick="lbNav(1)">›</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<div id="footer-placeholder"></div>
+<div id="wa-placeholder"></div>
+<script src="components.js" defer></script>
+<script>
+document.getElementById('nav-placeholder').outerHTML = navHTML('portfolio.html');
+document.getElementById('footer-placeholder').outerHTML = footerHTML();
+document.getElementById('wa-placeholder').outerHTML = waFloat();
+document.body.insertAdjacentHTML('beforeend', sharedScripts());
+
+const galleries = {
+  'quince-julieta': [
+    'CMG_7295.webp','CMG_7326.webp','CMG_7342.webp','CMG_7344.webp','CMG_7359.webp',
+    'CMG_7371.webp','CMG_7378.webp','CMG_7385.webp','CMG_7409.webp','CMG_7417.webp',
+  ],
+  'bodas-jimmy': [
+    'boda-jimmy-01.webp','boda-jimmy-02.webp','boda-jimmy-03.webp',
+    'boda-jimmy-04.webp','boda-jimmy-05.webp','boda-jimmy-06.webp',
+    'boda-jimmy-07.webp','boda-jimmy-08.webp','boda-jimmy-09.webp',
+    'boda-jimmy-10.webp',
+  ],
+  'contenido-yolo': [
+    'yolo-01.webp','yolo-02.webp','yolo-03.webp','yolo-04.webp',
+    'yolo-05.webp','yolo-06.webp','yolo-07.webp','yolo-08.webp','yolo-09.webp',
+  ],
+  'empresas-a3vte': [
+    'a3vte-01.webp','a3vte-03.webp','a3vte-04.webp','a3vte-05.webp','a3vte-08.webp',
+    'a3vte-10.webp','a3vte-12.webp','a3vte-13.webp','a3vte-15.webp','a3vte-16.webp',
+  ],
+};
+
+let currentGallery = '', currentIndex = 0;
+
+function openLightbox(gallery, index) {
+  if (!galleries[gallery]) return;
+  currentGallery = gallery; currentIndex = index;
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeLightboxOutside(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+}
+function lbNav(dir) {
+  const imgs = galleries[currentGallery];
+  currentIndex = (currentIndex + dir + imgs.length) % imgs.length;
+  updateLightbox();
+}
+function updateLightbox() {
+  const imgs = galleries[currentGallery];
+  document.getElementById('lb-img').src = imgs[currentIndex];
+  document.getElementById('lb-counter').textContent = `${currentIndex+1} / ${imgs.length}`;
+}
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') lbNav(1);
+  if (e.key === 'ArrowLeft') lbNav(-1);
+  if (e.key === 'Escape') closeLightbox();
+});
+
+function switchMain(id, btn) {
+  document.querySelectorAll('.cat-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.mtab').forEach(b => b.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function switchEvent(cat, ev, btn) {
+  document.querySelectorAll('#cat-' + cat + ' .event-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('#cat-' + cat + ' .etab').forEach(b => b.classList.remove('active'));
+  document.getElementById('ev-' + cat + '-' + ev).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
