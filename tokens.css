@@ -1,0 +1,47 @@
+/**
+ * tokens.css
+ * ─────────────────────────────────────────────────────────
+ * Design tokens for C.M.G. Producciones.
+ *
+ * The original site evolved two parallel color systems that render
+ * near-identical gold tones ("gold" system used by style.css /
+ * portfolio.html, "cream" system used by index.html and the page-level
+ * overrides on servicios/contacto/nosotros/testimonios). Both are kept
+ * here, verbatim, as the single source of truth so no page's computed
+ * styles change. Consolidating them into one palette is a follow-up
+ * visual-design task, not a refactor task — doing it here would risk
+ * changing how the site looks.
+ */
+
+:root {
+  /* ── "Gold" system — style.css / portfolio.html ───────── */
+  --gold: #C8A35F;
+  --gold-light: #dfc08a;
+  --gold-dim: rgba(200, 163, 95, 0.15);
+  --dark: #0D0D0D;
+  --dark-2: #141414;
+  --dark-3: #1a1a1a;
+  --dark-4: #222;
+  --white: #FFFFFF;
+  --gray: #888;
+  --gray-light: #bbb;
+
+  /* ── "Cream" system — index.html + page overrides ────── */
+  --cream: #C8A97E;
+  --cream-light: #dfc4a0;
+  --bg: #0A0A0A;
+  --bg2: #111111;
+  --bg3: #181818;
+  --text: #E8E8E8;
+  --text-muted: #888;
+  --text-dim: #555;
+
+  /* ── Fonts ─────────────────────────────────────────────── */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* ── Fixed brand values (avoid magic numbers in JS/CSS) ── */
+  --whatsapp-number: 595986249592;
+  --whatsapp-green: #25D366;
+}

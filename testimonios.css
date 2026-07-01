@@ -1,0 +1,45 @@
+/**
+ * testimonios.css
+ * Page-specific styles for testimonios.html.
+ * Shared chrome lives in tokens.css / layout.css / cream-theme.css.
+ */
+
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.testi-card{background:var(--dark-2);border:1px solid rgba(200,163,95,0.07);padding:2.5rem 2rem;position:relative;transition:border-color 0.3s;}
+.testi-card:hover{border-color:rgba(200,163,95,0.2);}
+.testi-stars{color:var(--gold);letter-spacing:3px;font-size:0.85rem;margin-bottom:1.2rem;}
+.testi-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--gray-light);line-height:1.75;margin-bottom:1.5rem;}
+.testi-client{font-weight:600;font-size:0.82rem;}
+.testi-event{font-size:0.72rem;color:var(--gray);margin-top:3px;}
+.testi-bg-q{position:absolute;top:1.2rem;right:1.5rem;font-family:'Cormorant Garamond',serif;font-size:5rem;color:rgba(200,163,95,0.05);line-height:1;}
+
+/* Before/After */
+#antesdespues{padding:7rem 6vw;background:var(--dark-2);}
+.slider-wrap{position:relative;width:100%;max-width:920px;margin:3rem auto 0;aspect-ratio:16/8;overflow:hidden;cursor:col-resize;border:1px solid rgba(200,163,95,0.12);user-select:none;}
+.slider-before,.slider-after{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:5rem;}
+.slider-before{background:linear-gradient(135deg,#1a1008,#2d1f0a);color:rgba(200,163,95,0.15);}
+.slider-after{background:linear-gradient(135deg,#0a0a18,#101028);color:rgba(200,163,95,0.4);clip-path:inset(0 50% 0 0);}
+.slider-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--gold);z-index:10;cursor:col-resize;}
+.slider-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--dark);font-size:0.7rem;letter-spacing:-1px;white-space:nowrap;font-weight:700;}
+.slider-label{position:absolute;bottom:1rem;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);z-index:5;}
+.slider-label.left{left:1.5rem;}
+.slider-label.right{right:1.5rem;}
+.slider-hint{text-align:center;margin-top:1rem;font-size:0.72rem;color:var(--gray);letter-spacing:0.08em;}
+
+/* Google reviews strip */
+#google-strip{padding:4rem 6vw;background:var(--gold);display:flex;justify-content:center;gap:4rem;align-items:center;flex-wrap:wrap;}
+.gs-item{text-align:center;}
+.gs-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--dark);line-height:1;}
+.gs-l{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(13,13,13,0.6);margin-top:4px;}
+
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.testi-grid{grid-template-columns:1fr;}.slider-wrap{aspect-ratio:4/3;}}
+.testi-card { background: var(--bg2) !important; border-color: rgba(200,169,126,0.07) !important; }
+.testi-stars { color: var(--cream) !important; }
+.testi-client { color: var(--cream) !important; }
+#google-strip { background: var(--cream) !important; }
+.gs-n { color: var(--bg) !important; }
+.gs-l { color: rgba(10,10,10,0.6) !important; }
+#antesdespues { background: var(--bg2) !important; }
+.slider-handle { background: var(--cream) !important; }
+.slider-btn { background: var(--cream) !important; color: var(--bg) !important; }
