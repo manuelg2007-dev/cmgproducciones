@@ -1,0 +1,26 @@
+/**
+ * cream-theme.css
+ * Shared "cream" palette override for the layout.css page family
+ * (servicios / contacto / nosotros / testimonios).
+ *
+ * These exact rules were previously duplicated verbatim inline in all
+ * four pages. The --cream/--bg/etc. custom properties they reference
+ * already come from tokens.css, so only the override rules themselves
+ * are needed here.
+ */
+
+body { font-family: 'Inter', sans-serif; }
+
+/* Page hero upgrade */
+.page-hero { min-height: 50vh; background: var(--bg) !important; }
+.page-eyebrow { color: var(--cream) !important; }
+.page-title em { color: var(--cream) !important; }
+.gold-bar { background: var(--cream) !important; }
+.eyebrow { color: var(--cream) !important; }
+.section-title em { color: var(--cream); }
+
+/* Reveal-on-scroll animation (used by nosotros / contacto / testimonios) */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }

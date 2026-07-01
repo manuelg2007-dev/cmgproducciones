@@ -1,0 +1,19 @@
+/*
+  # Previene clickjacking - nadie puede embeber tu web en un iframe
+  X-Frame-Options: DENY
+  # Previene que el browser "adivine" el tipo de archivo (MIME sniffing)
+  X-Content-Type-Options: nosniff
+  # Fuerza HTTPS y recuerda por 1 año
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  # Controla qué información se envía cuando el usuario hace clic en links externos
+  Referrer-Policy: strict-origin-when-cross-origin
+  # Deshabilita funciones del browser que no necesitás (micrófono, cámara, geolocalización, etc.)
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  # Content Security Policy - solo carga recursos de fuentes confiables.
+  # script-src ya NO necesita 'unsafe-inline': todo el JS del sitio se
+  # cargó antes vía onclick="" y <script> inline; ahora son módulos ES
+  # externos (assets/js/**) más event listeners, así que se puede cerrar
+  # esa puerta sin romper nada.
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'
+  # Previene que navegadores antiguos ejecuten XSS
+  X-XSS-Protection: 1; mode=block
