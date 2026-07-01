@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.M.G. Producciones | Fotografía de Bodas Premium · Paraguay</title>
+<meta name="description" content="Fotografía y producción audiovisual de lujo para bodas, 15 años y eventos en Paraguay. Capturamos emociones que duran toda la vida.">
+<meta property="og:title" content="C.M.G. Producciones | Fotografía Premium Paraguay">
+<meta property="og:description" content="Fotografía de bodas de lujo. Más de 200 eventos cubiertos en Paraguay.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://manuelg2007-dev.github.io/cmgproducciones/">
+<meta name="twitter:card" content="summary_large_image">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ════════════════════════════════════
+   VARIABLES
+════════════════════════════════════ */
+:root {
+  --cream: #C8A97E;
+  --cream-light: #dfc4a0;
+  --bg: #0A0A0A;
+  --bg2: #111111;
+  --bg3: #181818;
+  --text: #E8E8E8;
+  --text-muted: #888;
+  --text-dim: #555;
+  --white: #ffffff;
+}
+
+/* Override shared CSS */
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
+
+/* ════════════════════════════════════
+   NAV OVERRIDE
+════════════════════════════════════ */
+nav { padding: 24px 6vw; }
+nav.scrolled {
+  background: rgba(10,10,10,0.97);
+  padding: 16px 6vw;
+  border-bottom: 1px solid rgba(200,169,126,0.1);
+}
+.nav-logo { font-family: 'Cormorant Garamond', serif; color: var(--cream); font-size: 1rem; letter-spacing: 0.12em; }
+.nav-links a { color: #666; font-size: 0.68rem; letter-spacing: 0.18em; }
+.nav-links a:hover, .nav-links a.active { color: var(--cream); }
+.nav-cta {
+  background: transparent; color: var(--cream);
+  border: 1px solid rgba(200,169,126,0.4); padding: 9px 24px;
+  font-size: 0.68rem; letter-spacing: 0.14em;
+}
+.nav-cta:hover { background: var(--cream); color: var(--bg); border-color: var(--cream); }
+
+/* ════════════════════════════════════
+   1. HERO
+════════════════════════════════════ */
+#hero {
+  min-height: 100vh; position: relative;
+  display: flex; align-items: center; overflow: hidden;
+  background: var(--bg);
+}
+.hero-bg-img {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.3) 40%, rgba(10,10,10,0.7) 100%),
+    linear-gradient(135deg, #0a0a0a 0%, #141008 50%, #0a0a0a 100%);
+}
+.hero-grain {
+  position: absolute; inset: 0; opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  padding: 0 6vw; width: 100%; max-width: 1100px;
+  padding-top: 5rem;
+}
+.hero-pre {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 3rem; opacity: 0;
+  animation: fadeUp 1s 0.3s forwards;
+}
+.hero-pre-line { width: 40px; height: 1px; background: var(--cream); }
+.hero-pre-text { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--cream); font-weight: 400; }
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  font-weight: 300; line-height: 0.92;
+  color: var(--white); margin-bottom: 2.5rem;
+  letter-spacing: -0.02em;
+  opacity: 0; animation: fadeUp 1.2s 0.5s forwards;
+}
+.hero-title em { font-style: italic; color: var(--cream); }
+.hero-title strong { font-weight: 600; display: block; }
+.hero-sub {
+  font-size: clamp(0.82rem, 1.5vw, 1rem);
+  color: #777; max-width: 460px; line-height: 1.9;
+  font-weight: 300; margin-bottom: 3.5rem;
+  opacity: 0; animation: fadeUp 1s 0.8s forwards;
+}
+.hero-btns {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 1s 1s forwards;
+}
+.btn-hero-main {
+  background: var(--cream); color: var(--bg);
+  padding: 16px 44px; font-size: 0.72rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 500; text-decoration: none;
+  transition: all 0.35s; display: inline-block;
+}
+.btn-hero-main:hover { background: var(--cream-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,169,126,0.25); }
+.btn-hero-sec {
+  background: transparent; color: var(--text);
+  padding: 16px 44px; font-size: 0.72rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 400; text-decoration: none;
+  border: 1px solid rgba(232,232,232,0.15);
+  transition: all 0.35s; display: inline-block;
+}
+.btn-hero-sec:hover { border-color: var(--cream); color: var(--cream); }
+.hero-scroll-indicator {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: fadeIn 1s 1.5s both;
+}
+.hero-scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--cream), transparent); animation: scrollPulse 2s infinite; }
+@keyframes scrollPulse { 0%,100%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform-origin:bottom} }
+.hero-stats-row {
+  position: absolute; bottom: 3rem; right: 6vw;
+  display: flex; gap: 3.5rem;
+  opacity: 0; animation: fadeUp 1s 1.2s forwards;
+}
+.hero-stat-n { font-family:'Cormorant Garamond',serif; font-size:2.8rem; color:var(--white); font-weight:300; line-height:1; }
+.hero-stat-n span { color:var(--cream); }
+.hero-stat-l { font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-top:5px; }
+
+/* ════════════════════════════════════
+   2. FILOSOFÍA
+════════════════════════════════════ */
+#filosofia {
+  background: var(--bg2);
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 85vh;
+}
+.fil-left {
+  padding: 8rem 6vw; display: flex; flex-direction: column; justify-content: center;
+}
+.fil-label { font-size:0.62rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--cream); margin-bottom:2.5rem; }
+.fil-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight:300;
+  line-height: 1.5; color: var(--white); margin-bottom: 3rem;
+}
+.fil-title em { font-style:italic; color:var(--cream); }
+.fil-text { font-size:0.9rem; color:var(--text-muted); line-height:2.2; max-width:440px; }
+.fil-text strong { color:var(--text); font-weight:400; }
+.fil-right {
+  background: linear-gradient(135deg,#141008,#1a1208,#0a0a0a);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8rem; color: rgba(200,169,126,0.08);
+  position: relative; overflow: hidden;
+}
+.fil-right::before {
+  content: ''; position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(200,169,126,0.06) 0%, transparent 70%);
+}
+.fil-photo-label {
+  position:absolute; bottom:2rem; left:2rem;
+  font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(200,169,126,0.4);
+}
+
+/* ════════════════════════════════════
+   3. NÚMEROS
+════════════════════════════════════ */
+#numeros { background:var(--bg); padding:7rem 6vw; }
+.nums-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(200,169,126,0.06); margin-top:4rem; }
+.num-card { background:var(--bg2); padding:4rem 2rem; text-align:center; }
+.num-n {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,6vw,6rem); font-weight:300;
+  color:var(--white); line-height:1;
+}
+.num-n span { color:var(--cream); }
+.num-l { font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-top:1rem; }
+
+/* ════════════════════════════════════
+   4. GALERÍA
+════════════════════════════════════ */
+#galeria { background:var(--bg2); padding:7rem 6vw; }
+.galeria-filters {
+  display:flex; gap:0.5rem; flex-wrap:wrap;
+  margin-top:2.5rem; margin-bottom:3rem;
+  border-bottom: 1px solid rgba(200,169,126,0.1);
+  padding-bottom: 1.5rem;
+}
+.gfil {
+  background:none; border:none; color:var(--text-muted);
+  font-family:'Inter',sans-serif; font-size:0.68rem;
+  letter-spacing:0.16em; text-transform:uppercase;
+  padding:0.6rem 1.2rem; cursor:pointer; transition:color 0.3s;
+  position:relative;
+}
+.gfil::after { content:''; position:absolute; bottom:-1.5rem; left:0; width:100%; height:1px; background:var(--cream); transform:scaleX(0); transition:transform 0.3s; }
+.gfil.active { color:var(--cream); }
+.gfil.active::after { transform:scaleX(1); }
+.gfil:hover { color:var(--text); }
+.masonry { columns:3; gap:4px; }
+.masonry-item {
+  break-inside:avoid; margin-bottom:4px;
+  position:relative; overflow:hidden; cursor:pointer; display:block;
+}
+.masonry-item .ph {
+  width:100%; display:flex; align-items:center; justify-content:center;
+  font-size:3rem; color:rgba(200,169,126,0.12);
+  transition:transform 0.6s;
+}
+.masonry-item:hover .ph { transform:scale(1.04); }
+.masonry-item img { width:100%; display:block; transition:transform 0.6s; object-fit:cover; }
+.masonry-item:hover img { transform:scale(1.04); }
+.m-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%);
+  opacity:0; transition:opacity 0.4s;
+  display:flex; flex-direction:column; justify-content:flex-end; padding:1.2rem;
+}
+.masonry-item:hover .m-overlay { opacity:1; }
+.m-cat { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:0.2rem; }
+.m-title { font-family:'Cormorant Garamond',serif; font-size:0.95rem; color:var(--white); }
+/* Colored placeholders */
+.ph1{aspect-ratio:4/5;background:linear-gradient(135deg,#141008,#1e1810);}
+.ph2{aspect-ratio:1;background:linear-gradient(135deg,#0d0d1a,#14101e);}
+.ph3{aspect-ratio:3/4;background:linear-gradient(135deg,#0a1008,#101408);}
+.ph4{aspect-ratio:16/9;background:linear-gradient(135deg,#140a10,#1e1018);}
+.ph5{aspect-ratio:1;background:linear-gradient(135deg,#10080a,#181010);}
+.ph6{aspect-ratio:4/5;background:linear-gradient(135deg,#0a0e14,#10141e);}
+.ph7{aspect-ratio:3/2;background:linear-gradient(135deg,#14100a,#1e1810);}
+.ph8{aspect-ratio:1;background:linear-gradient(135deg,#080e10,#101418);}
+.ph9{aspect-ratio:4/3;background:linear-gradient(135deg,#100a14,#18101c);}
+
+/* Lightbox */
+.lightbox { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.97); align-items:center; justify-content:center; }
+.lightbox.open { display:flex; }
+.lb-img { max-width:90vw; max-height:88vh; object-fit:contain; }
+.lb-ph { max-width:60vw; max-height:80vh; display:flex; align-items:center; justify-content:center; font-size:6rem; }
+.lb-close { position:absolute; top:2rem; right:2rem; color:var(--cream); font-size:1.5rem; cursor:pointer; background:none; border:none; opacity:0.7; transition:opacity 0.3s; }
+.lb-close:hover { opacity:1; }
+.lb-prev,.lb-next { position:absolute; top:50%; transform:translateY(-50%); background:rgba(200,169,126,0.08); border:1px solid rgba(200,169,126,0.2); color:var(--cream); width:50px; height:50px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.3rem; transition:background 0.3s; }
+.lb-prev:hover,.lb-next:hover { background:rgba(200,169,126,0.2); }
+.lb-prev{left:1.5rem;} .lb-next{right:1.5rem;}
+.lb-counter { position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); font-size:0.68rem; color:var(--text-muted); letter-spacing:0.15em; }
+
+/* ════════════════════════════════════
+   5. VIDEO
+════════════════════════════════════ */
+#video-section {
+  background:var(--bg); position:relative;
+  min-height:60vh; display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+.video-bg { position:absolute; inset:0; background:linear-gradient(135deg,#0a0a0a,#141008,#0a0a0a); display:flex; align-items:center; justify-content:center; font-size:8rem; color:rgba(200,169,126,0.05); }
+.video-overlay { position:absolute; inset:0; background:rgba(10,10,10,0.6); }
+.video-content { position:relative; z-index:2; text-align:center; padding:0 6vw; }
+.video-label { font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--cream); margin-bottom:2rem; display:block; }
+.video-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,6vw,5.5rem); font-weight:300; color:var(--white); line-height:1.1; margin-bottom:3rem; }
+.video-title em { font-style:italic; color:var(--cream); }
+.btn-play {
+  width:80px; height:80px; border:1px solid rgba(200,169,126,0.4);
+  border-radius:50%; display:inline-flex; align-items:center; justify-content:center;
+  color:var(--cream); font-size:1.5rem; transition:all 0.4s; cursor:pointer;
+  background:rgba(200,169,126,0.05); text-decoration:none;
+}
+.btn-play:hover { background:rgba(200,169,126,0.15); border-color:var(--cream); transform:scale(1.08); }
+
+/* ════════════════════════════════════
+   6. TESTIMONIOS
+════════════════════════════════════ */
+#testimonios { background:var(--bg2); padding:7rem 6vw; }
+.testi-slider { position:relative; overflow:hidden; margin-top:3.5rem; }
+.testi-track { display:flex; transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+.testi-slide { min-width:100%; display:grid; grid-template-columns:1fr 2fr; gap:5rem; align-items:center; padding:0 1px; }
+.testi-photo { aspect-ratio:3/4; background:linear-gradient(135deg,#141008,#1e1810); display:flex; align-items:center; justify-content:center; font-size:5rem; color:rgba(200,169,126,0.1); position:relative; overflow:hidden; }
+.testi-photo img { width:100%; height:100%; object-fit:cover; }
+.testi-content {}
+.testi-stars { color:var(--cream); letter-spacing:4px; font-size:0.9rem; margin-bottom:1.5rem; }
+.testi-quote { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(1.3rem,2.5vw,1.8rem); color:var(--white); line-height:1.6; margin-bottom:2rem; font-weight:300; }
+.testi-name { font-size:0.78rem; font-weight:500; color:var(--cream); letter-spacing:0.08em; }
+.testi-event { font-size:0.7rem; color:var(--text-muted); margin-top:4px; letter-spacing:0.05em; }
+.testi-controls { display:flex; gap:1rem; margin-top:3rem; }
+.testi-btn { width:48px; height:48px; border:1px solid rgba(200,169,126,0.2); background:none; color:var(--cream); cursor:pointer; transition:all 0.3s; font-size:1rem; display:flex; align-items:center; justify-content:center; }
+.testi-btn:hover { background:rgba(200,169,126,0.1); border-color:var(--cream); }
+.testi-dots { display:flex; gap:0.5rem; align-items:center; margin-top:3rem; }
+.testi-dot { width:4px; height:4px; border-radius:50%; background:var(--text-dim); transition:all 0.3s; cursor:pointer; }
+.testi-dot.active { background:var(--cream); width:24px; border-radius:2px; }
+
+/* ════════════════════════════════════
+   7. PROCESO
+════════════════════════════════════ */
+#proceso { background:var(--bg); padding:7rem 6vw; }
+.proceso-head { max-width:500px; margin-bottom:5rem; }
+.proceso-timeline { display:grid; grid-template-columns:repeat(5,1fr); gap:0; position:relative; }
+.proceso-timeline::before { content:''; position:absolute; top:20px; left:5%; right:5%; height:1px; background:linear-gradient(to right,transparent,rgba(200,169,126,0.3),rgba(200,169,126,0.3),transparent); }
+.pt-step { display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 1rem; }
+.pt-num { width:40px; height:40px; border:1px solid rgba(200,169,126,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--cream); background:var(--bg); position:relative; z-index:1; margin-bottom:1.5rem; transition:all 0.3s; }
+.pt-step:hover .pt-num { background:rgba(200,169,126,0.1); border-color:var(--cream); }
+.pt-title { font-size:0.78rem; font-weight:500; color:var(--white); margin-bottom:0.5rem; letter-spacing:0.04em; }
+.pt-desc { font-size:0.7rem; color:var(--text-muted); line-height:1.7; }
+
+/* ════════════════════════════════════
+   8. SOBRE NOSOTROS
+════════════════════════════════════ */
+#sobre { background:var(--bg2); display:grid; grid-template-columns:1fr 1fr; min-height:80vh; }
+.sobre-img {
+  background:linear-gradient(135deg,#141008,#1a1210,#0a0a0a);
+  display:flex; align-items:center; justify-content:center;
+  font-size:8rem; color:rgba(200,169,126,0.08); position:relative;
+}
+.sobre-img img { width:100%; height:100%; object-fit:cover; }
+.sobre-badge {
+  position:absolute; bottom:2rem; right:2rem;
+  background:var(--cream); color:var(--bg);
+  width:110px; height:110px; border-radius:50%;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; line-height:1.2;
+}
+.sobre-badge-n { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:700; }
+.sobre-badge-l { font-size:0.55rem; letter-spacing:0.05em; text-transform:uppercase; padding:0 8px; }
+.sobre-content { padding:8rem 6vw; display:flex; flex-direction:column; justify-content:center; }
+.sobre-quote {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.3rem,2.5vw,2rem); font-style:italic; font-weight:300;
+  color:var(--cream); line-height:1.6; border-left:1px solid var(--cream);
+  padding-left:2rem; margin:2rem 0;
+}
+.sobre-text { font-size:0.88rem; color:var(--text-muted); line-height:2.1; }
+.sobre-name { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--white); margin-top:2rem; }
+.sobre-role { font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--cream); margin-top:4px; }
+
+/* ════════════════════════════════════
+   9. INSTAGRAM
+════════════════════════════════════ */
+#instagram { background:var(--bg); padding:7rem 6vw; }
+.ig-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:3px; margin-top:3rem; }
+.ig-item {
+  aspect-ratio:1; overflow:hidden; position:relative; cursor:pointer;
+  background:var(--bg3);
+}
+.ig-item .ig-ph { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:2rem; color:rgba(200,169,126,0.1); transition:transform 0.4s; }
+.ig-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.4s; }
+.ig-item:hover .ig-ph, .ig-item:hover img { transform:scale(1.06); }
+.ig-ov { position:absolute; inset:0; background:rgba(0,0,0,0.4); opacity:0; transition:opacity 0.3s; display:flex; align-items:center; justify-content:center; }
+.ig-item:hover .ig-ov { opacity:1; }
+.ig-ov span { color:var(--white); font-size:0.75rem; letter-spacing:0.1em; }
+.ig-cta { text-align:center; margin-top:3rem; }
+.ig-stats { display:flex; gap:3rem; margin-bottom:2.5rem; }
+.ig-stat-n { font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--cream); }
+.ig-stat-l { font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:3px; }
+.ig-handle { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-style:italic; color:var(--white); margin-bottom:0.5rem; }
+
+/* ════════════════════════════════════
+   10. FORMULARIO
+════════════════════════════════════ */
+#formulario { background:var(--bg2); padding:7rem 6vw; }
+.form-inner { display:grid; grid-template-columns:1fr 1.4fr; gap:6rem; align-items:start; }
+.form-left {}
+.form-left p { font-size:0.88rem; color:var(--text-muted); line-height:2; margin-top:1.5rem; max-width:380px; }
+.form-contact-items { display:flex; flex-direction:column; gap:1.5rem; margin-top:3rem; }
+.form-contact-item { display:flex; gap:1rem; align-items:flex-start; }
+.form-contact-icon { font-size:1.1rem; color:var(--cream); flex-shrink:0; margin-top:2px; }
+.form-contact-label { font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--cream); margin-bottom:3px; }
+.form-contact-val { font-size:0.88rem; color:var(--text); }
+.form-contact-val a { color:var(--text); text-decoration:none; transition:color 0.3s; }
+.form-contact-val a:hover { color:var(--cream); }
+.form-right {}
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.form-group { display:flex; flex-direction:column; gap:0.4rem; }
+.form-group.full { grid-column:1/-1; }
+.form-group label { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background:var(--bg3); border:1px solid rgba(200,169,126,0.1);
+  color:var(--white); padding:13px 16px;
+  font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:300;
+  outline:none; transition:border-color 0.3s; width:100%;
+  -webkit-appearance:none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color:var(--cream); }
+.form-group select option { background:var(--bg3); }
+.form-group textarea { resize:none; }
+.btn-submit {
+  width:100%; background:var(--cream); color:var(--bg);
+  padding:16px; font-size:0.75rem; letter-spacing:0.18em;
+  text-transform:uppercase; font-weight:600; border:none; cursor:pointer;
+  transition:all 0.3s; margin-top:0.5rem; font-family:'Inter',sans-serif;
+}
+.btn-submit:hover { background:var(--cream-light); transform:translateY(-2px); box-shadow:0 8px 30px rgba(200,169,126,0.2); }
+.form-note { font-size:0.68rem; color:var(--text-dim); text-align:center; margin-top:1rem; line-height:1.6; }
+/* Success animation */
+.form-success { display:none; text-align:center; padding:4rem 2rem; }
+.form-success.show { display:block; }
+.form-success-icon { font-size:3rem; margin-bottom:1rem; }
+.form-success-title { font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--white); margin-bottom:0.8rem; }
+.form-success-text { font-size:0.85rem; color:var(--text-muted); line-height:1.8; }
+
+/* ════════════════════════════════════
+   STICKY CTA
+════════════════════════════════════ */
+.sticky-cta {
+  position:fixed; bottom:0; left:0; right:0; z-index:100;
+  background:rgba(10,10,10,0.97); backdrop-filter:blur(10px);
+  padding:1rem 6vw; display:flex; justify-content:space-between;
+  align-items:center; border-top:1px solid rgba(200,169,126,0.1);
+  transform:translateY(100%); transition:transform 0.4s; gap:1rem;
+}
+.sticky-cta.visible { transform:translateY(0); }
+.sticky-cta-text { font-family:'Cormorant Garamond',serif; font-size:1rem; font-style:italic; color:var(--text-muted); }
+.sticky-cta-text span { color:var(--cream); }
+.btn-sticky { background:var(--cream); color:var(--bg); padding:11px 28px; font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; font-weight:600; text-decoration:none; white-space:nowrap; transition:all 0.3s; }
+.btn-sticky:hover { background:var(--cream-light); }
+
+/* ════════════════════════════════════
+   FOOTER OVERRIDE
+════════════════════════════════════ */
+footer { background:var(--bg); border-top:1px solid rgba(200,169,126,0.08); }
+.footer-brand-name { color:var(--cream); font-family:'Cormorant Garamond',serif; }
+
+/* ════════════════════════════════════
+   ANIMATIONS
+════════════════════════════════════ */
+@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:0.1s; }
+.reveal-delay-2 { transition-delay:0.2s; }
+.reveal-delay-3 { transition-delay:0.3s; }
+
+/* ════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════ */
+@media(max-width:1024px) {
+  #filosofia { grid-template-columns:1fr; }
+  .fil-right { min-height:400px; }
+  #sobre { grid-template-columns:1fr; }
+  .sobre-img { min-height:400px; }
+  .sobre-badge { display:none; }
+  .nums-grid { grid-template-columns:1fr; }
+  .proceso-timeline { grid-template-columns:1fr 1fr; gap:2.5rem; }
+  .proceso-timeline::before { display:none; }
+  .ig-grid { grid-template-columns:repeat(3,1fr); }
+  .testi-slide { grid-template-columns:1fr; gap:2rem; }
+  .testi-photo { max-height:280px; }
+  .form-inner { grid-template-columns:1fr; gap:4rem; }
+}
+@media(max-width:700px) {
+  .hero-inner { padding: 6rem 5vw 3rem; }
+  .hero-stats-row { display:none; }
+  .hero-btns { flex-direction:column; }
+  .hero-btns a { text-align:center; }
+  .masonry { columns:1; }
+  .nums-grid { grid-template-columns:1fr; }
+  .proceso-timeline { grid-template-columns:1fr; }
+  .ig-grid { grid-template-columns:repeat(2,1fr); }
+  .form-grid { grid-template-columns:1fr; }
+  .galeria-filters { gap:0.2rem; }
+  .gfil { padding:0.5rem 0.8rem; font-size:0.62rem; }
+  .sticky-cta { flex-direction:column; text-align:center; padding:1rem 5vw; }
+  #filosofia { min-height:auto; }
+  .fil-left { padding:5rem 5vw; }
+  #sobre { min-height:auto; }
+  .sobre-content { padding:5rem 5vw; }
+  .testi-slide { padding:0; }
+}
+@media(max-width:400px) {
+  .hero-title { font-size:2.8rem; }
+  .ig-grid { grid-template-columns:repeat(2,1fr); }
+  .masonry { columns:1; }
+}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<!-- ═══ 1. HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-inner">
+    <div class="hero-pre">
+      <span class="hero-pre-line"></span>
+      <span class="hero-pre-text">C.M.G. Producciones · Paraguay</span>
+    </div>
+    <h1 class="hero-title">
+      Creamos<br>
+      recuerdos que<br>
+      se vuelven <em>eternos.</em>
+    </h1>
+    <p class="hero-sub">Fotografía y producción audiovisual de lujo para bodas, 15 años y eventos que merecen ser recordados para siempre.</p>
+    <p class="hero-loc" style="font-size:0.7rem;color:var(--text-dim);letter-spacing:0.14em;margin-bottom:3rem;">📍 Paraguay · Cubrimos todo el país</p>
+    <div class="hero-btns">
+      <a href="#formulario" class="btn-hero-main">Solicitar Presupuesto</a>
+      <a href="portfolio.html" class="btn-hero-sec">Ver Portfolio</a>
+    </div>
+  </div>
+  <div class="hero-stats-row">
+    <div><div class="hero-stat-n"><span>+</span>200</div><div class="hero-stat-l">Eventos cubiertos</div></div>
+    <div><div class="hero-stat-n"><span>+</span>10</div><div class="hero-stat-l">Años de experiencia</div></div>
+    <div><div class="hero-stat-n">100<span>%</span></div><div class="hero-stat-l">Satisfacción</div></div>
+  </div>
+  <div class="hero-scroll-indicator"><div class="hero-scroll-line"></div></div>
+</section>
+
+<!-- ═══ 2. FILOSOFÍA ═══ -->
+<section id="filosofia">
+  <div class="fil-left reveal">
+    <span class="fil-label">Nuestra filosofía</span>
+    <h2 class="fil-title">
+      No buscamos poses.<br>
+      Buscamos <em>emociones.</em>
+    </h2>
+    <p class="fil-text">
+      <strong>Las lágrimas que nadie vio.</strong><br>
+      Las miradas que duraron un segundo.<br>
+      Los abrazos que cuentan toda una historia.<br><br>
+      Capturamos los momentos que nadie puede repetir. Porque un evento termina en una noche.<br>
+      <strong>Los recuerdos duran toda la vida.</strong>
+    </p>
+    <div style="margin-top:2.5rem;">
+      <a href="#formulario" class="btn-hero-main" style="font-size:0.68rem;padding:14px 36px;">Reservar mi fecha</a>
+    </div>
+  </div>
+  <div class="fil-right reveal reveal-delay-2">
+    <span style="position:relative;z-index:1;">📷</span>
+    <span class="fil-photo-label">Tu foto real va aquí</span>
+  </div>
+</section>
+
+<!-- ═══ 3. NÚMEROS ═══ -->
+<!-- sección números eliminada -->
+
+<!-- ═══ 4. GALERÍA ═══ -->
+<section id="galeria" style="text-align:center;padding:5rem 6vw;">
+  <div class="reveal">
+    <span style="font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--cream,#C8A35F);display:block;margin-bottom:1rem;">Portfolio</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:#fff;margin-bottom:1.25rem;">Solo lo mejor. <em style="font-style:italic;color:var(--cream,#C8A35F);">Siempre.</em></h2>
+    <p style="font-size:0.88rem;color:rgba(255,255,255,0.45);max-width:460px;margin:0 auto 2.5rem;line-height:1.9;font-family:'Inter',sans-serif;">Bodas · XV Años · Corporativo · Creación de Contenidos · Producción Audiovisual</p>
+    <a href="portfolio.html" style="display:inline-block;padding:14px 44px;background:#C8A35F;color:#000;font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#DFB95A'" onmouseout="this.style.background='#C8A35F'">Ver Portfolio Completo →</a>
+  </div>
+</section>
+
+<!-- ═══ 5. VIDEO ═══ -->
+<section id="video-section">
+  <div class="video-bg">🎬</div>
+  <div class="video-overlay"></div>
+  <div class="video-content reveal">
+    <span class="video-label">Producción cinematográfica</span>
+    <h2 class="video-title">Así se vive<br><em>una historia.</em></h2>
+    <a href="https://www.youtube.com/@C.M.G.PRODUCCIONES" target="_blank" rel="noopener noreferrer" class="btn-play">▶</a>
+  </div>
+</section>
+
+<!-- ═══ 6. TESTIMONIOS ═══ -->
+<section id="testimonios">
+  <div class="reveal">
+    <span style="font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--cream);display:block;margin-bottom:1rem;">Testimonios</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--white);">Lo que dicen <em style="font-style:italic;color:var(--cream);">nuestros clientes.</em></h2>
+  </div>
+  <div class="testi-slider reveal reveal-delay-1">
+    <div class="testi-track" id="testiTrack">
+      <!-- Slide 1 -->
+      <div class="testi-slide">
+        <div class="testi-photo">💍</div>
+        <div class="testi-content">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Volveríamos a elegirlos mil veces. Capturaron exactamente lo que soñamos para nuestra boda. Cada foto cuenta nuestra historia."</p>
+          <div class="testi-name">María & Rodrigo</div>
+          <div class="testi-event">Boda · Asunción, 2024</div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="testi-slide">
+        <div class="testi-photo">🌸</div>
+        <div class="testi-content">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Superaron nuestras expectativas. El quinceañero de mi hija quedó inolvidable. Las fotos son de otro nivel, pura emoción."</p>
+          <div class="testi-name">Patricia C.</div>
+          <div class="testi-event">XV Años · Luque, 2024</div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="testi-slide">
+        <div class="testi-photo">💒</div>
+        <div class="testi-content">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"La mejor inversión de nuestra boda. El video cinemático nos hizo llorar de emoción. Lo vemos una y otra vez con toda la familia."</p>
+          <div class="testi-name">Laura & Diego M.</div>
+          <div class="testi-event">Boda · San Lorenzo, 2024</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
+      <div class="testi-controls">
+        <button class="testi-btn" onclick="slideTesti(-1)">‹</button>
+        <button class="testi-btn" onclick="slideTesti(1)">›</button>
+      </div>
+      <div class="testi-dots">
+        <div class="testi-dot active" onclick="goTesti(0)"></div>
+        <div class="testi-dot" onclick="goTesti(1)"></div>
+        <div class="testi-dot" onclick="goTesti(2)"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. PROCESO ═══ -->
+<section id="proceso">
+  <div class="proceso-head reveal">
+    <span style="font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--cream);display:block;margin-bottom:1rem;">Cómo trabajamos</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--white);">Simple. Claro. <em style="font-style:italic;color:var(--cream);">Sin sorpresas.</em></h2>
+    <div style="width:40px;height:1px;background:var(--cream);margin:1.5rem 0;"></div>
+  </div>
+  <div class="proceso-timeline reveal reveal-delay-1">
+    <div class="pt-step"><div class="pt-num">1</div><div class="pt-title">Nos conocemos</div><div class="pt-desc">Reunión sin compromiso. Escuchamos tu visión.</div></div>
+    <div class="pt-step"><div class="pt-num">2</div><div class="pt-title">Planificamos</div><div class="pt-desc">Organizamos cada detalle. Nada al azar.</div></div>
+    <div class="pt-step"><div class="pt-num">3</div><div class="pt-title">Vivimos el gran día</div><div class="pt-desc">Capturamos cada instante que importa.</div></div>
+    <div class="pt-step"><div class="pt-num">4</div><div class="pt-title">Editamos</div><div class="pt-desc">Color grading, selección y video cinemático.</div></div>
+    <div class="pt-step"><div class="pt-num">5</div><div class="pt-title">Entrega Premium</div><div class="pt-desc">Galería online, fotolibro y videos.</div></div>
+  </div>
+</section>
+
+<!-- ═══ 8. SOBRE ═══ -->
+<section id="sobre" style="padding:0;">
+  <div class="sobre-img">
+    <span style="position:relative;z-index:1;">📸</span>
+    <div class="sobre-badge">
+      <span class="sobre-badge-n">+10</span>
+      <span class="sobre-badge-l">Años de experiencia</span>
+    </div>
+  </div>
+  <div class="sobre-content reveal">
+    <span style="font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--cream);display:block;margin-bottom:1.5rem;">Sobre nosotros</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--white);line-height:1.2;white-space:nowrap;">Manuel González <em style="font-style:italic;color:var(--cream);">Espínola.</em></h2>
+    <p class="sobre-quote">"Durante más de diez años he tenido el privilegio de contar historias de amor. Cada evento es único. Cada persona merece recuerdos que emocionen incluso dentro de treinta años."</p>
+    <p class="sobre-text">Soy Manuel, fundador de C.M.G. Producciones. Combino la sensibilidad artística de un fotógrafo con la visión estratégica del marketing digital, creando una propuesta única en Paraguay: no solo capturamos tu evento, sino que lo convertimos en contenido que emociona y perdura.</p>
+    <div class="sobre-name">Manuel González Espínola</div>
+    <div class="sobre-role">Fundador · C.M.G. Producciones</div>
+    <div style="margin-top:2.5rem;">
+      <a href="#formulario" class="btn-hero-main" style="font-size:0.68rem;padding:14px 36px;">Trabajemos juntos →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 9. INSTAGRAM ═══ -->
+<!-- sección instagram eliminada -->
+
+<!-- ═══ 10. FORMULARIO ═══ -->
+<section id="formulario">
+  <div class="form-inner">
+    <div class="reveal">
+      <span style="font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--cream);display:block;margin-bottom:1.5rem;">Contacto</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--white);line-height:1.2;">Reservá tu fecha<br><em style="font-style:italic;color:var(--cream);">antes de que se ocupe.</em></h2>
+      <div style="width:40px;height:1px;background:var(--cream);margin:1.5rem 0;"></div>
+      <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.9;max-width:360px;">Agendamos una reunión sin compromiso para conocer tu evento y diseñar juntos la propuesta ideal.</p>
+      <div class="form-contact-items">
+        <div class="form-contact-item">
+          <span class="form-contact-icon">📱</span>
+          <div><div class="form-contact-label">WhatsApp</div><div class="form-contact-val"><a href="https://wa.me/595986249592" target="_blank" rel="noopener noreferrer">+595 986 249 592</a></div></div>
+        </div>
+        <div class="form-contact-item">
+          <span class="form-contact-icon">📷</span>
+          <div><div class="form-contact-label">Instagram</div><div class="form-contact-val"><a href="https://www.instagram.com/c.m.g.producciones/" target="_blank" rel="noopener noreferrer">@c.m.g.producciones</a></div></div>
+        </div>
+        <div class="form-contact-item">
+          <span class="form-contact-icon">▶️</span>
+          <div><div class="form-contact-label">YouTube</div><div class="form-contact-val"><a href="https://www.youtube.com/@C.M.G.PRODUCCIONES" target="_blank" rel="noopener noreferrer">@C.M.G.PRODUCCIONES</a></div></div>
+        </div>
+        <div class="form-contact-item">
+          <span class="form-contact-icon">📘</span>
+          <div><div class="form-contact-label">Facebook</div><div class="form-contact-val"><a href="https://www.facebook.com/cmgproducciones" target="_blank" rel="noopener noreferrer">C.M.G. Producciones</a></div></div>
+        </div>
+        <div class="form-contact-item">
+          <span class="form-contact-icon">💼</span>
+          <div><div class="form-contact-label">LinkedIn</div><div class="form-contact-val"><a href="https://www.linkedin.com/in/manuelgonz%C3%A1lezesp%C3%ADnola/" target="_blank" rel="noopener noreferrer">C.M.G. Producciones</a></div></div>
+        </div>
+        <div class="form-contact-item">
+          <span class="form-contact-icon">📍</span>
+          <div><div class="form-contact-label">Ubicación</div><div class="form-contact-val">Fernando de la Mora · Paraguay</div></div>
+        </div>
+        <div class="form-contact-item">
+          <span class="form-contact-icon">⏰</span>
+          <div><div class="form-contact-label">Atención</div><div class="form-contact-val">Lun–Sáb · 9:00 – 20:00</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div id="formContainer">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" id="f-nombre" placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp</label>
+            <input type="tel" id="f-wa" placeholder="+595 XXX XXX XXX">
+          </div>
+          <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email" id="f-email" placeholder="tu@correo.com">
+          </div>
+          <div class="form-group">
+            <label>Fecha del evento</label>
+            <input type="date" id="f-fecha">
+          </div>
+          <div class="form-group">
+            <label>Ciudad / Lugar</label>
+            <input type="text" id="f-ciudad" placeholder="Ej: Asunción">
+          </div>
+          <div class="form-group">
+            <label>Tipo de evento</label>
+            <select id="f-tipo">
+              <option value="">Seleccioná</option>
+              <option>Boda</option>
+              <option>XV Años</option>
+              <option>Pre Boda</option>
+              <option>Pre XV Años</option>
+              <option>Evento Corporativo</option>
+              <option>Producción Audiovisual</option>
+              <option>Social Media Management</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Mensaje</label>
+            <textarea id="f-msg" rows="4" placeholder="Contanos sobre tu evento, expectativas, consultas..."></textarea>
+          </div>
+        </div>
+        <button class="btn-submit" onclick="enviarPresupuesto()">Quiero mi presupuesto →</button>
+        <p class="form-note">Al enviar, abriremos WhatsApp con tu consulta ya redactada.<br>Respondemos en menos de 24 horas.</p>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">✨</div>
+        <div class="form-success-title">¡Mensaje enviado!</div>
+        <p class="form-success-text">Te redirigimos a WhatsApp para confirmar tu consulta.<br>Te contactamos en menos de 24 horas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLBOutside(event)">
+  <button class="lb-close" onclick="closeLB()">✕</button>
+  <button class="lb-prev" onclick="lbNav(-1)">‹</button>
+  <div class="lb-ph" id="lb-ph"></div>
+  <button class="lb-next" onclick="lbNav(1)">›</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <span class="sticky-cta-text">¿Listo para crear <span>recuerdos eternos?</span></span>
+  <a href="#formulario" class="btn-sticky">Solicitar Presupuesto</a>
+</div>
+
+<div id="footer-placeholder"></div>
+<div id="wa-placeholder"></div>
+
+<script src="components.js"></script>
+<script>
+// ── INIT ──
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('nav-placeholder').outerHTML = navHTML('index.html');
+  document.getElementById('footer-placeholder').outerHTML = footerHTML();
+  document.getElementById('wa-placeholder').outerHTML = waFloat();
+  document.body.insertAdjacentHTML('beforeend', sharedScripts());
+  initReveal();
+  initStickyCta();
+  initCounters();
+});
+
+// ── REVEAL ON SCROLL ──
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+}
+
+// ── STICKY CTA ──
+function initStickyCta() {
+  const cta = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    cta.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+}
+
+// ── COUNTERS ──
+function initCounters() {
+  const counters = document.querySelectorAll('.counter');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        const el = e.target;
+        const target = parseInt(el.textContent);
+        let count = 0;
+        const step = Math.ceil(target / 60);
+        const timer = setInterval(() => {
+          count = Math.min(count + step, target);
+          el.textContent = count;
+          if(count >= target) clearInterval(timer);
+        }, 25);
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => { el.dataset.target = el.textContent; el.textContent = '0'; obs.observe(el); });
+}
+
+
+// ── LIGHTBOX ──
+const lbItems = [
+  { icon:'💍', cat:'Boda · 2018', title:'Jimmy Adorno' },
+  { icon:'🌸', cat:'XV Años · 2025', title:'Kevin Adorno' },
+  { icon:'📌', cat:'Corporativo · 2024', title:'A3VTE' },
+  { icon:'📱', cat:'Social Media', title:'Yolo' },
+  { icon:'🥂', cat:'Boda', title:'Ceremonia religiosa' },
+  { icon:'✨', cat:'XV Años', title:'Sesión previa' },
+  { icon:'💑', cat:'Pre Boda', title:'Sesión de pareja' },
+  { icon:'🎬', cat:'Producción', title:'Video cinemático' },
+  { icon:'🏆', cat:'Corporativo', title:'Evento empresarial' },
+];
+let lbIdx = 0;
+function openLB(i) {
+  lbIdx = i; updateLB();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLB() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+function closeLBOutside(e) { if(e.target.id==='lightbox') closeLB(); }
+function lbNav(d) { lbIdx=(lbIdx+d+lbItems.length)%lbItems.length; updateLB(); }
+function updateLB() {
+  const item=lbItems[lbIdx];
+  document.getElementById('lb-ph').innerHTML=`<div style="text-align:center"><div style="font-size:8rem">${item.icon}</div><div style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream);margin-top:1rem">${item.cat}</div><div style="font-family:Cormorant Garamond,serif;font-size:1.5rem;color:var(--white);margin-top:0.5rem">${item.title}</div></div>`;
+  document.getElementById('lb-counter').textContent=`${lbIdx+1} / ${lbItems.length}`;
+}
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='ArrowRight') lbNav(1);
+  if(e.key==='ArrowLeft') lbNav(-1);
+  if(e.key==='Escape') closeLB();
+});
+
+// ── TESTIMONIOS SLIDER ──
+let testiIdx=0;
+function slideTesti(d) { testiIdx=Math.max(0,Math.min(2,testiIdx+d)); updateTesti(); }
+function goTesti(i) { testiIdx=i; updateTesti(); }
+function updateTesti() {
+  document.getElementById('testiTrack').style.transform=`translateX(-${testiIdx*100}%)`;
+  document.querySelectorAll('.testi-dot').forEach((d,i)=>d.classList.toggle('active',i===testiIdx));
+}
+// Auto-slide
+setInterval(()=>{ testiIdx=(testiIdx+1)%3; updateTesti(); },5000);
+
+// ── FORMULARIO WHATSAPP ──
+function sanitize(s) { return s.replace(/<[^>]*>/g,'').replace(/[<>"'`]/g,'').trim().substring(0,500); }
+function enviarPresupuesto() {
+  const n=sanitize(document.getElementById('f-nombre').value)||'Sin nombre';
+  const wa=sanitize(document.getElementById('f-wa').value)||'No indicado';
+  const em=sanitize(document.getElementById('f-email').value)||'No indicado';
+  const f=sanitize(document.getElementById('f-fecha').value)||'A confirmar';
+  const c=sanitize(document.getElementById('f-ciudad').value)||'No indicada';
+  const t=sanitize(document.getElementById('f-tipo').value)||'No seleccionado';
+  const m=sanitize(document.getElementById('f-msg').value)||'';
+  const last=localStorage.getItem('cmg_last');
+  if(last&&(Date.now()-parseInt(last))<30000){alert('Esperá 30 segundos antes de enviar otro mensaje.');return;}
+  localStorage.setItem('cmg_last',Date.now().toString());
+  const msg=`Hola! 👋 Les escribo desde su web.\n\n*Nombre:* ${n}\n*WhatsApp:* ${wa}\n*Email:* ${em}\n*Evento:* ${t}\n*Fecha:* ${f}\n*Ciudad:* ${c}\n*Mensaje:* ${m}`;
+  document.getElementById('formSuccess').classList.add('show');
+  document.querySelector('.form-grid').style.display='none';
+  document.querySelector('.btn-submit').style.display='none';
+  document.querySelector('.form-note').style.display='none';
+  setTimeout(()=>window.open(`https://wa.me/595986249592?text=${encodeURIComponent(msg)}`, '_blank'), 800);
+}
+</script>
+</body>
+</html>
