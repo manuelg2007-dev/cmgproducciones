@@ -17,8 +17,8 @@ const WHATSAPP_DEFAULT_MESSAGE = 'Hola! Vi su web y me gustaría consultar.';
 
 const NAV_PAGES = [
   { href: 'index.html', label: 'Inicio' },
-  { href: 'portfolio.html', label: 'Portfolio' },
   { href: 'servicios.html', label: 'Servicios' },
+  { href: 'portfolio.html', label: 'Portfolio' },
   { href: 'nosotros.html', label: 'Nosotros' },
   { href: 'testimonios.html', label: 'Testimonios' },
 ];
