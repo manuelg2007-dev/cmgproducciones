@@ -9,8 +9,8 @@ Portfolio profesional de fotografía y video. Publicado en GitHub Pages.
 ```
 cmg-web/
 ├── index.html          ← Inicio
-├── portfolio.html      ← Galería por evento
 ├── servicios.html      ← Servicios detallados
+├── portfolio.html      ← Galería por evento
 ├── nosotros.html       ← Historia y equipo
 ├── testimonios.html    ← Reseñas de clientes
 ├── contacto.html       ← Formulario + FAQ
