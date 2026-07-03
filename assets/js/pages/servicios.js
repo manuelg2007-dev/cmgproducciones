@@ -21,6 +21,11 @@ const reGalleries = {
   'kit-matero': [
     'img/regalos-empresariales/kit-matero/kit-matero-claudia.webp',
   ],
+  'mesa-marmol': [
+    'img/regalos-empresariales/mesa-marmol/mesa-marmol-01.webp',
+    'img/regalos-empresariales/mesa-marmol/mesa-marmol-02.webp',
+    'img/regalos-empresariales/mesa-marmol/mesa-marmol-03.webp',
+  ],
   'vasos-termicos': [
     'img/regalos-empresariales/vasos-grabado-laser/vasos-nombres-familia.webp',
     'img/regalos-empresariales/vasos-grabado-laser/vasos-shell-vikingo.webp',
