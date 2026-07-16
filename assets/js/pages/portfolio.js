@@ -15,6 +15,12 @@ import { initReveal, triggerReveal } from '../core/reveal.js';
 
 /** @type {Record<string, string[]>} gallery id -> ordered image paths */
 const galleries = {
+  'quince-giannina-prexv': [
+    'img/quince/giannina/prexv/giannina-prexv-01.webp', 'img/quince/giannina/prexv/giannina-prexv-02.webp', 'img/quince/giannina/prexv/giannina-prexv-03.webp',
+    'img/quince/giannina/prexv/giannina-prexv-04.webp', 'img/quince/giannina/prexv/giannina-prexv-05.webp', 'img/quince/giannina/prexv/giannina-prexv-06.webp',
+    'img/quince/giannina/prexv/giannina-prexv-07.webp', 'img/quince/giannina/prexv/giannina-prexv-08.webp', 'img/quince/giannina/prexv/giannina-prexv-09.webp',
+    'img/quince/giannina/prexv/giannina-prexv-10.webp',
+  ],
   'quince-jimena-prexv': [
     'img/quince/jimena/prexv/CMG_7902.webp', 'img/quince/jimena/prexv/CMG_7885.webp', 'img/quince/jimena/prexv/CMG_7882.webp',
     'img/quince/jimena/prexv/CMG_7826.webp', 'img/quince/jimena/prexv/CMG_7810.webp', 'img/quince/jimena/prexv/CMG_7791.webp',
