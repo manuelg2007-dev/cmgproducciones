@@ -15,6 +15,18 @@ import { initReveal, triggerReveal } from '../core/reveal.js';
 
 /** @type {Record<string, string[]>} gallery id -> ordered image paths */
 const galleries = {
+  'quince-jimena-prexv': [
+    'img/quince/jimena/prexv/CMG_7902.webp', 'img/quince/jimena/prexv/CMG_7885.webp', 'img/quince/jimena/prexv/CMG_7882.webp',
+    'img/quince/jimena/prexv/CMG_7826.webp', 'img/quince/jimena/prexv/CMG_7810.webp', 'img/quince/jimena/prexv/CMG_7791.webp',
+    'img/quince/jimena/prexv/CMG_7781.webp', 'img/quince/jimena/prexv/CMG_7767.webp', 'img/quince/jimena/prexv/CMG_7750.webp',
+    'img/quince/jimena/prexv/CMG_7743.webp',
+  ],
+  'quince-jimena-fiesta': [
+    'img/quince/jimena/fiesta/CMG_8056.webp', 'img/quince/jimena/fiesta/CMG_8057.webp', 'img/quince/jimena/fiesta/CMG_8143.webp',
+    'img/quince/jimena/fiesta/CMG_8151.webp', 'img/quince/jimena/fiesta/CMG_8153.webp', 'img/quince/jimena/fiesta/CMG_8155.webp',
+    'img/quince/jimena/fiesta/CMG_8183.webp', 'img/quince/jimena/fiesta/CMG_8185.webp', 'img/quince/jimena/fiesta/CMG_8192.webp',
+    'img/quince/jimena/fiesta/CMG_8217.webp',
+  ],
   'quince-kevin': [
     'img/quince/julieta/CMG_7295.webp', 'img/quince/julieta/CMG_7326.webp', 'img/quince/julieta/CMG_7342.webp',
     'img/quince/julieta/CMG_7344.webp', 'img/quince/julieta/CMG_7359.webp', 'img/quince/julieta/CMG_7371.webp',
