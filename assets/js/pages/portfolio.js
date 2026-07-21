@@ -15,6 +15,12 @@ import { initReveal, triggerReveal } from '../core/reveal.js';
 
 /** @type {Record<string, string[]>} gallery id -> ordered image paths */
 const galleries = {
+  'bautismo-arantza': [
+    'img/bautismo/arantza/CMG_3311.webp', 'img/bautismo/arantza/CMG_3316.webp', 'img/bautismo/arantza/CMG_3320.webp',
+    'img/bautismo/arantza/CMG_3324.webp', 'img/bautismo/arantza/CMG_3326.webp', 'img/bautismo/arantza/CMG_3327.webp',
+    'img/bautismo/arantza/CMG_3332.webp', 'img/bautismo/arantza/CMG_3336.webp', 'img/bautismo/arantza/CMG_3344.webp',
+    'img/bautismo/arantza/CMG_3390.webp',
+  ],
   'quince-giannina-prexv': [
     'img/quince/giannina/giannina-prexv-01.webp', 'img/quince/giannina/giannina-prexv-02.webp', 'img/quince/giannina/giannina-prexv-03.webp',
     'img/quince/giannina/giannina-prexv-04.webp', 'img/quince/giannina/giannina-prexv-05.webp', 'img/quince/giannina/giannina-prexv-06.webp',
