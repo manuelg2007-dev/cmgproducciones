@@ -12,6 +12,7 @@
 .testi-client{font-weight:600;font-size:0.82rem;}
 .testi-event{font-size:0.72rem;color:var(--gray);margin-top:3px;}
 .testi-bg-q{position:absolute;top:1.2rem;right:1.5rem;font-family:'Cormorant Garamond',serif;font-size:5rem;color:rgba(200,163,95,0.05);line-height:1;}
+.testi-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top center;border:2px solid rgba(200,163,95,0.35);margin-bottom:1rem;display:block;}
 
 /* Before/After */
 #antesdespues{padding:7rem 6vw;background:var(--dark-2);}
