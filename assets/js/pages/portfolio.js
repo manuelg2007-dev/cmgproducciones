@@ -15,6 +15,12 @@ import { initReveal, triggerReveal } from '../core/reveal.js';
 
 /** @type {Record<string, string[]>} gallery id -> ordered image paths */
 const galleries = {
+  'empresas-neolife': [
+    'img/empresas/neolife/CMG_7317.webp', 'img/empresas/neolife/CMG_7323.webp', 'img/empresas/neolife/CMG_7325.webp',
+    'img/empresas/neolife/CMG_7327.webp', 'img/empresas/neolife/CMG_7329.webp', 'img/empresas/neolife/CMG_7331.webp',
+    'img/empresas/neolife/CMG_7333.webp', 'img/empresas/neolife/CMG_7335.webp', 'img/empresas/neolife/CMG_7338.webp',
+    'img/empresas/neolife/CMG_7340.webp',
+  ],
   'bautismo-arantza': [
     'img/bautismo/arantza/CMG_3311.webp', 'img/bautismo/arantza/CMG_3316.webp', 'img/bautismo/arantza/CMG_3320.webp',
     'img/bautismo/arantza/CMG_3324.webp', 'img/bautismo/arantza/CMG_3326.webp', 'img/bautismo/arantza/CMG_3327.webp',
