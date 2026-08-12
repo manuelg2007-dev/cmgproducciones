@@ -15,6 +15,12 @@ import { initReveal, triggerReveal } from '../core/reveal.js';
 
 /** @type {Record<string, string[]>} gallery id -> ordered image paths */
 const galleries = {
+  'empresas-roger-molinas': [
+    'img/empresas/roger-molinas/CMG_9445.webp', 'img/empresas/roger-molinas/CMG_9447.webp', 'img/empresas/roger-molinas/CMG_9452.webp',
+    'img/empresas/roger-molinas/CMG_9455.webp', 'img/empresas/roger-molinas/CMG_9459.webp', 'img/empresas/roger-molinas/CMG_9466.webp',
+    'img/empresas/roger-molinas/CMG_9481.webp', 'img/empresas/roger-molinas/CMG_9486.webp', 'img/empresas/roger-molinas/CMG_9508.webp',
+    'img/empresas/roger-molinas/CMG_9517.webp',
+  ],
   'empresas-neolife': [
     'img/empresas/neolife/CMG_7317.webp', 'img/empresas/neolife/CMG_7323.webp', 'img/empresas/neolife/CMG_7325.webp',
     'img/empresas/neolife/CMG_7327.webp', 'img/empresas/neolife/CMG_7329.webp', 'img/empresas/neolife/CMG_7331.webp',
