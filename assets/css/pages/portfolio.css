@@ -263,7 +263,7 @@ body {
   object-fit: contain; object-position: center center;
   transition: transform 0.7s ease; display: block;
 }
-.ev-hero:hover img { transform: scale(1.03); }
+.ev-hero:hover img { transform: none; }
 .ev-hero-label {
   position: absolute; bottom: 1.1rem; left: 1.5rem;
   font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase;
