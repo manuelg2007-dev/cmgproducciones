@@ -15,6 +15,12 @@ import { initReveal, triggerReveal } from '../core/reveal.js';
 
 /** @type {Record<string, string[]>} gallery id -> ordered image paths */
 const galleries = {
+  'infantil-yulieth': [
+    'img/infantil/yulieth/CMG_9684.webp', 'img/infantil/yulieth/CMG_9701.webp', 'img/infantil/yulieth/CMG_9704.webp',
+    'img/infantil/yulieth/CMG_9711.webp', 'img/infantil/yulieth/CMG_9717.webp', 'img/infantil/yulieth/CMG_9738.webp',
+    'img/infantil/yulieth/CMG_9744.webp', 'img/infantil/yulieth/CMG_9752.webp', 'img/infantil/yulieth/CMG_9782.webp',
+    'img/infantil/yulieth/CMG_9813.webp',
+  ],
   'empresas-roger-molinas': [
     'img/empresas/roger-molinas/CMG_9445.webp', 'img/empresas/roger-molinas/CMG_9447.webp', 'img/empresas/roger-molinas/CMG_9452.webp',
     'img/empresas/roger-molinas/CMG_9455.webp', 'img/empresas/roger-molinas/CMG_9459.webp', 'img/empresas/roger-molinas/CMG_9466.webp',
