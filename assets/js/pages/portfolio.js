@@ -11,6 +11,7 @@
  * strings in the HTML.
  */
 
+import { initSiteChrome } from '../core/site-chrome.js';
 import { initReveal, triggerReveal } from '../core/reveal.js';
 
 /** @type {Record<string, string[]>} gallery id -> ordered image paths */
@@ -149,10 +150,6 @@ function switchSubCategory(categoryId, subId, buttonEl) {
   triggerReveal();
 }
 
-function toggleMobileMenu() {
-  document.getElementById('mobileMenu')?.classList.toggle('open');
-}
-
 function initDelegatedActions() {
   document.addEventListener('click', (event) => {
     const el = event.target.closest('[data-action]');
@@ -181,9 +178,6 @@ function initDelegatedActions() {
       case 'switch-sub':
         switchSubCategory(el.dataset.cat, el.dataset.sub, el);
         break;
-      case 'toggle-menu':
-        toggleMobileMenu();
-        break;
       default:
         break;
     }
@@ -209,6 +203,7 @@ function initDelegatedActions() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  initSiteChrome('portfolio.html');
   initDelegatedActions();
   initReveal();
 });

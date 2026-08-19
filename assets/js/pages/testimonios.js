@@ -4,39 +4,42 @@
 
 import { initSiteChrome } from '../core/site-chrome.js';
 
-const CLAMP_MIN_PCT = 5;
-const CLAMP_MAX_PCT = 95;
+const REAL_GALLERY_AUTOPLAY_MS = 4500;
 
-function initBeforeAfterSlider() {
-  const wrap = document.getElementById('sliderWrap');
-  const after = document.getElementById('sliderAfter');
-  const handle = document.getElementById('sliderHandle');
-  if (!wrap || !after || !handle) return;
+/** Carrusel de fotos reales (sección "Bodas Reales" en testimonios.html). */
+function initRealGallery() {
+  const track = document.getElementById('realTrack');
+  const dotsWrap = document.getElementById('realDots');
+  if (!track || !dotsWrap) return;
 
-  let dragging = false;
+  const slideCount = track.children.length;
+  if (slideCount === 0) return;
 
-  function setSlider(clientX) {
-    const rect = wrap.getBoundingClientRect();
-    const pct = Math.max(
-      CLAMP_MIN_PCT,
-      Math.min(CLAMP_MAX_PCT, ((clientX - rect.left) / rect.width) * 100)
-    );
-    after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-    handle.style.left = `${pct}%`;
+  let index = 0;
+
+  dotsWrap.innerHTML = Array.from({ length: slideCount })
+    .map((_, i) => `<div class="real-dot${i === 0 ? ' active' : ''}" data-real-dot="${i}"></div>`)
+    .join('');
+  const dots = dotsWrap.querySelectorAll('.real-dot');
+
+  function update() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
   }
 
-  handle.addEventListener('mousedown', () => { dragging = true; });
-  window.addEventListener('mouseup', () => { dragging = false; });
-  window.addEventListener('mousemove', (e) => { if (dragging) setSlider(e.clientX); });
+  function goTo(i) {
+    index = (i + slideCount) % slideCount;
+    update();
+  }
 
-  handle.addEventListener('touchstart', () => { dragging = true; }, { passive: true });
-  window.addEventListener('touchend', () => { dragging = false; });
-  window.addEventListener('touchmove', (e) => {
-    if (dragging) setSlider(e.touches[0].clientX);
-  }, { passive: true });
+  document.querySelector('[data-real-prev]')?.addEventListener('click', () => goTo(index - 1));
+  document.querySelector('[data-real-next]')?.addEventListener('click', () => goTo(index + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+  setInterval(() => goTo(index + 1), REAL_GALLERY_AUTOPLAY_MS);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   initSiteChrome('testimonios.html');
-  initBeforeAfterSlider();
+  initRealGallery();
 });
