@@ -70,6 +70,12 @@ const galleries = {
     'img/bodas/boda-jimmy/boda-jimmy-07.webp', 'img/bodas/boda-jimmy/boda-jimmy-08.webp', 'img/bodas/boda-jimmy/boda-jimmy-09.webp',
     'img/bodas/boda-jimmy/boda-jimmy-10.webp',
   ],
+  'bodas-thomas-cinthya': [
+    'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-01.webp', 'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-02.webp', 'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-03.webp',
+    'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-04.webp', 'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-05.webp', 'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-06.webp',
+    'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-07.webp', 'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-08.webp', 'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-09.webp',
+    'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-10.webp',
+  ],
   'empresas-a3vte': [
     'img/empresas/a3vte/a3vte-01.webp', 'img/empresas/a3vte/a3vte-03.webp', 'img/empresas/a3vte/a3vte-04.webp',
     'img/empresas/a3vte/a3vte-05.webp', 'img/empresas/a3vte/a3vte-08.webp', 'img/empresas/a3vte/a3vte-10.webp',
