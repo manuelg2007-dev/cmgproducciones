@@ -64,6 +64,12 @@ const galleries = {
     'img/quince/julieta/CMG_7378.webp', 'img/quince/julieta/CMG_7385.webp', 'img/quince/julieta/CMG_7409.webp',
     'img/quince/julieta/CMG_7417.webp',
   ],
+  'quince-danny-bravo': [
+    'img/quince/danny-bravo/danny-bravo-01.webp', 'img/quince/danny-bravo/danny-bravo-02.webp', 'img/quince/danny-bravo/danny-bravo-03.webp',
+    'img/quince/danny-bravo/danny-bravo-04.webp', 'img/quince/danny-bravo/danny-bravo-05.webp', 'img/quince/danny-bravo/danny-bravo-06.webp',
+    'img/quince/danny-bravo/danny-bravo-07.webp', 'img/quince/danny-bravo/danny-bravo-08.webp', 'img/quince/danny-bravo/danny-bravo-09.webp',
+    'img/quince/danny-bravo/danny-bravo-10.webp', 'img/quince/danny-bravo/danny-bravo-11.webp',
+  ],
   'bodas-jimmy': [
     'img/bodas/boda-jimmy/boda-jimmy-01.webp', 'img/bodas/boda-jimmy/boda-jimmy-02.webp', 'img/bodas/boda-jimmy/boda-jimmy-03.webp',
     'img/bodas/boda-jimmy/boda-jimmy-04.webp', 'img/bodas/boda-jimmy/boda-jimmy-05.webp', 'img/bodas/boda-jimmy/boda-jimmy-06.webp',
