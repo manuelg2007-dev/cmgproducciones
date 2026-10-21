@@ -345,6 +345,33 @@ body {
 }
 .vid-card { background: var(--dark-3); overflow: hidden; }
 .vid-card iframe { width: 100%; aspect-ratio: 9/16; display: block; border: none; }
+
+/* Thumbnail "facade": the player loads only when clicked */
+.vid-thumb {
+  position: relative; display: block; width: 100%;
+  aspect-ratio: 9/16; padding: 0; border: 0;
+  background: var(--dark-3); cursor: pointer; overflow: hidden;
+}
+.vid-thumb img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.5s ease, opacity 0.3s;
+}
+.vid-thumb:hover img { transform: scale(1.04); opacity: 0.85; }
+.vid-thumb:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+.vid-play {
+  position: absolute; top: 50%; left: 50%;
+  width: 56px; height: 56px; margin: -28px 0 0 -28px;
+  border-radius: 50%; background: rgba(0,0,0,0.55);
+  border: 1px solid var(--gold);
+  transition: background 0.2s, transform 0.2s;
+}
+.vid-play::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  margin: -9px 0 0 -6px;
+  border-style: solid; border-width: 9px 0 9px 15px;
+  border-color: transparent transparent transparent var(--gold);
+}
+.vid-thumb:hover .vid-play { background: rgba(0,0,0,0.75); transform: scale(1.08); }
 .vid-label {
   padding: 0.55rem 0.9rem;
   font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
