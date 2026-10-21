@@ -162,6 +162,41 @@ function switchSubCategory(categoryId, subId, buttonEl) {
   triggerReveal();
 }
 
+/**
+ * Video facade: each card shows a YouTube thumbnail and only loads the
+ * real player (iframe) when clicked — keeps the page light (Core Web
+ * Vitals) and avoids 6 simultaneous player downloads. Only one video
+ * plays at a time: starting another restores the previous thumbnail.
+ */
+const videoFacades = new WeakMap(); // card element -> original thumbnail button
+
+function restoreVideo(card) {
+  const facade = videoFacades.get(card);
+  const iframe = card.querySelector('iframe');
+  if (!facade || !iframe) return;
+  iframe.replaceWith(facade);
+  videoFacades.delete(card);
+}
+
+function playVideo(buttonEl) {
+  const card = buttonEl.closest('.vid-card');
+  const id = buttonEl.dataset.videoId;
+  if (!card || !/^[\w-]{11}$/.test(id || '')) return;
+
+  document.querySelectorAll('.vid-card iframe').forEach((f) => restoreVideo(f.closest('.vid-card')));
+
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&playsinline=1`;
+  iframe.title = buttonEl.dataset.title || 'Video · C.M.G. Producciones';
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allowFullscreen = true;
+  iframe.className = 'vid-frame';
+
+  videoFacades.set(card, buttonEl);
+  buttonEl.replaceWith(iframe);
+  iframe.focus();
+}
+
 function initDelegatedActions() {
   document.addEventListener('click', (event) => {
     const el = event.target.closest('[data-action]');
@@ -189,6 +224,9 @@ function initDelegatedActions() {
         break;
       case 'switch-sub':
         switchSubCategory(el.dataset.cat, el.dataset.sub, el);
+        break;
+      case 'play-video':
+        playVideo(el);
         break;
       default:
         break;
