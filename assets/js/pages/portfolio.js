@@ -69,6 +69,10 @@ const galleries = {
     'img/quince/danny-bravo/danny-bravo-04.webp', 'img/quince/danny-bravo/danny-bravo-05.webp', 'img/quince/danny-bravo/danny-bravo-06.webp',
     'img/quince/danny-bravo/danny-bravo-07.webp', 'img/quince/danny-bravo/danny-bravo-08.webp', 'img/quince/danny-bravo/danny-bravo-09.webp',
     'img/quince/danny-bravo/danny-bravo-10.webp', 'img/quince/danny-bravo/danny-bravo-11.webp',
+    'img/quince/danny-bravo/danny-bravo-12.webp', 'img/quince/danny-bravo/danny-bravo-13.webp', 'img/quince/danny-bravo/danny-bravo-14.webp',
+    'img/quince/danny-bravo/danny-bravo-15.webp', 'img/quince/danny-bravo/danny-bravo-16.webp', 'img/quince/danny-bravo/danny-bravo-17.webp',
+    'img/quince/danny-bravo/danny-bravo-18.webp', 'img/quince/danny-bravo/danny-bravo-19.webp', 'img/quince/danny-bravo/danny-bravo-20.webp',
+    'img/quince/danny-bravo/danny-bravo-21.webp',
   ],
   'bodas-jimmy': [
     'img/bodas/boda-jimmy/boda-jimmy-01.webp', 'img/bodas/boda-jimmy/boda-jimmy-02.webp', 'img/bodas/boda-jimmy/boda-jimmy-03.webp',
