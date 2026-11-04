@@ -63,6 +63,9 @@ const galleries = {
     'img/quince/julieta/CMG_7344.webp', 'img/quince/julieta/CMG_7359.webp', 'img/quince/julieta/CMG_7371.webp',
     'img/quince/julieta/CMG_7378.webp', 'img/quince/julieta/CMG_7385.webp', 'img/quince/julieta/CMG_7409.webp',
     'img/quince/julieta/CMG_7417.webp',
+    'img/quince/julieta/kevin-11.webp', 'img/quince/julieta/kevin-12.webp', 'img/quince/julieta/kevin-13.webp',
+    'img/quince/julieta/kevin-14.webp', 'img/quince/julieta/kevin-15.webp', 'img/quince/julieta/kevin-16.webp',
+    'img/quince/julieta/kevin-17.webp',
   ],
   'quince-danny-bravo': [
     'img/quince/danny-bravo/danny-bravo-01.webp', 'img/quince/danny-bravo/danny-bravo-02.webp', 'img/quince/danny-bravo/danny-bravo-03.webp',
