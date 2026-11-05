@@ -22,6 +22,18 @@ const galleries = {
     'img/infantil/yulieth/CMG_9744.webp', 'img/infantil/yulieth/CMG_9752.webp', 'img/infantil/yulieth/CMG_9782.webp',
     'img/infantil/yulieth/CMG_9813.webp',
   ],
+  'infantil-zadkiel': [
+    'img/infantil/zadkiel/zadkiel-01.webp',
+    'img/infantil/zadkiel/zadkiel-02.webp',
+    'img/infantil/zadkiel/zadkiel-03.webp',
+    'img/infantil/zadkiel/zadkiel-04.webp',
+    'img/infantil/zadkiel/zadkiel-05.webp',
+    'img/infantil/zadkiel/zadkiel-06.webp',
+    'img/infantil/zadkiel/zadkiel-07.webp',
+    'img/infantil/zadkiel/zadkiel-08.webp',
+    'img/infantil/zadkiel/zadkiel-09.webp',
+    'img/infantil/zadkiel/zadkiel-10.webp',
+  ],
   'empresas-roger-molinas': [
     'img/empresas/roger-molinas/CMG_9445.webp', 'img/empresas/roger-molinas/CMG_9447.webp', 'img/empresas/roger-molinas/CMG_9452.webp',
     'img/empresas/roger-molinas/CMG_9455.webp', 'img/empresas/roger-molinas/CMG_9459.webp', 'img/empresas/roger-molinas/CMG_9466.webp',
