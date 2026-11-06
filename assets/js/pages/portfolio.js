@@ -52,6 +52,12 @@ const galleries = {
     'img/bautismo/arantza/CMG_3332.webp', 'img/bautismo/arantza/CMG_3336.webp', 'img/bautismo/arantza/CMG_3344.webp',
     'img/bautismo/arantza/CMG_3390.webp',
   ],
+  'bautismo-bautista': [
+    'img/bautismo/bautista/bautista-01.webp', 'img/bautismo/bautista/bautista-02.webp', 'img/bautismo/bautista/bautista-03.webp',
+    'img/bautismo/bautista/bautista-04.webp', 'img/bautismo/bautista/bautista-05.webp', 'img/bautismo/bautista/bautista-06.webp',
+    'img/bautismo/bautista/bautista-07.webp', 'img/bautismo/bautista/bautista-08.webp', 'img/bautismo/bautista/bautista-09.webp',
+    'img/bautismo/bautista/bautista-10.webp',
+  ],
   'quince-giannina-prexv': [
     'img/quince/giannina/giannina-prexv-01.webp', 'img/quince/giannina/giannina-prexv-02.webp', 'img/quince/giannina/giannina-prexv-03.webp',
     'img/quince/giannina/giannina-prexv-04.webp', 'img/quince/giannina/giannina-prexv-05.webp', 'img/quince/giannina/giannina-prexv-06.webp',
