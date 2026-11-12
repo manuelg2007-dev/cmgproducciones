@@ -114,6 +114,18 @@ function initNavScroll() {
 }
 
 /**
+ * On mobile the nav links scroll horizontally; keeps the active link
+ * from being clipped at the edge of that scroll row on page load.
+ */
+function centerActiveNavLink() {
+  const links = document.querySelector('.cmg-nav-links');
+  const active = links?.querySelector('a.active');
+  if (!links || !active) return;
+  const target = active.offsetLeft - links.clientWidth / 2 + active.clientWidth / 2;
+  links.scrollLeft = Math.max(0, target);
+}
+
+/**
  * Injects the shared nav/footer/WhatsApp button into their placeholder
  * elements (if present on the page) and wires up all interactivity.
  * Safe to call on any page — sections with no matching placeholder are
@@ -154,5 +166,11 @@ export function initSiteChrome(currentPage) {
     initNavScroll();
   } catch (err) {
     console.error('CMG nav scroll error:', err);
+  }
+
+  try {
+    centerActiveNavLink();
+  } catch (err) {
+    console.error('CMG nav center-active error:', err);
   }
 }
