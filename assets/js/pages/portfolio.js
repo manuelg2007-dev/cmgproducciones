@@ -101,6 +101,10 @@ const galleries = {
     'img/bodas/boda-jimmy/boda-jimmy-07.webp', 'img/bodas/boda-jimmy/boda-jimmy-08.webp', 'img/bodas/boda-jimmy/boda-jimmy-09.webp',
     'img/bodas/boda-jimmy/boda-jimmy-10.webp',
   ],
+  'bodas-ana-nelson': [
+    'img/bodas/boda-ana-nelson/boda-ana-nelson-01.webp', 'img/bodas/boda-ana-nelson/boda-ana-nelson-02.webp', 'img/bodas/boda-ana-nelson/boda-ana-nelson-03.webp', 'img/bodas/boda-ana-nelson/boda-ana-nelson-04.webp', 'img/bodas/boda-ana-nelson/boda-ana-nelson-05.webp',
+    'img/bodas/boda-ana-nelson/boda-ana-nelson-06.webp', 'img/bodas/boda-ana-nelson/boda-ana-nelson-07.webp', 'img/bodas/boda-ana-nelson/boda-ana-nelson-08.webp', 'img/bodas/boda-ana-nelson/boda-ana-nelson-09.webp', 'img/bodas/boda-ana-nelson/boda-ana-nelson-10.webp',
+  ],
   'bodas-thomas-cinthya': [
     'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-01.webp', 'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-02.webp', 'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-03.webp',
     'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-04.webp', 'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-05.webp', 'img/bodas/boda-thomas-cinthya/boda-thomas-cinthya-06.webp',
